@@ -27,7 +27,8 @@ const styles = StyleSheet.create({
     headerTitle:{
         fontSize: 20,
         color: COLORS.text,
-        textTransform: "uppercase",
+        textTransform: "capitalize",
+        fontFamily:"kaisei-extraBold",
     },
 });
 

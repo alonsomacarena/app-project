@@ -51,6 +51,9 @@ const styles = StyleSheet.create({
     borderBottomColor: 'black',
     borderBottomWidth: 1,
     width: 200,
+    fontFamily:"kaisei-regular",
+    fontSize: 12,
+    color: COLORS.text,
   },
   inputError: {
     color: 'red',
@@ -67,6 +70,7 @@ const styles = StyleSheet.create({
 buttonTitle:{
     fontSize: 15,
     color: COLORS.text,
+    fontFamily:"kaisei-extraBold",
 },
 });
 

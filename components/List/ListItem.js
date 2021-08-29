@@ -5,11 +5,13 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
+import React, { useState } from 'react';
 
+import ButtonSwitch from "../ButtonSwitch"
 import COLORS from "../../constants/Colors";
-import React from 'react';
 
-const ListItem = ({ data, handleModal }) => {
+const ListItem = ({ data, handleModal}) => {
+  
   return (
     <View style={[styles.item, styles.shadow]}>
       <Text style={styles.itemText}>{data.item.value}</Text>
@@ -19,6 +21,7 @@ const ListItem = ({ data, handleModal }) => {
       >
         <Text style={styles.buttonTitle}>X</Text>
       </TouchableOpacity>
+      <ButtonSwitch buttonTitle="FAV" />
     </View>
   );
 }
@@ -40,6 +43,7 @@ const styles = StyleSheet.create({
       color: COLORS.text,
       fontSize: 15,
       textTransform: "uppercase",
+      fontFamily:"kaisei-medium",
   },
   button: {
     width: "10%",
@@ -53,6 +57,7 @@ const styles = StyleSheet.create({
 buttonTitle:{
     fontSize: 15,
     color: COLORS.text,
+    fontFamily:"kaisei-extraBold",
 },
 shadow: {
     shadowColor: "#000",
