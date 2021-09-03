@@ -1,15 +1,21 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from 'react-native';
 
-import React from "react";
+import React from 'react';
 
 const Home = () => {
-
-    
-    return (
-        <View>
-        <Text>Home Screen</Text>
-      </View>
-    )
+  return (
+    <View style={styles.screen}>
+      <Text>Home Screen</Text>
+    </View>
+  )
 }
+
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 export default Home;

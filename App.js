@@ -10,12 +10,13 @@ import Header from './components/Header';
 import List from "./components/List/index";
 import Modal from './components/Modal';
 import Products from './screens/Products';
+import SkincareNavigator from './navigation/SkincareNavigation';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 
 export default function App() {
 
-const [userProduct, setUserProduct]= useState("");
+/*const [userProduct, setUserProduct]= useState("");
   const [inputText, setInputText] = useState('');
   const [inputError, setInputError] = useState('');
   const [itemList, setItemList] = useState([]);
@@ -49,7 +50,7 @@ const [userProduct, setUserProduct]= useState("");
     setItemList(itemList.filter(item => item.id !== id));
     setModalVisible(false);
     setItemSelected({});
-  }
+  }*/
 
   
 
@@ -64,7 +65,7 @@ const [userProduct, setUserProduct]= useState("");
     return null;
   }
 
-  const handleModal = id => {
+ /* const handleModal = id => {
     setItemSelected(itemList.find(item => item.id === id));
     setModalVisible(true);
   }
@@ -77,10 +78,10 @@ const [userProduct, setUserProduct]= useState("");
 
   if(userProduct){
     content = <Products />
-  }
+  }*/
 
   return (
-    <View style={styles.screen}>
+    /*<View style={styles.screen}>
       <Header title="Rutina de Cuidado Facial" />
     <AddItem
         handleChangeText={handleChangeText}
@@ -100,7 +101,8 @@ const [userProduct, setUserProduct]= useState("");
       {content}
      <StatusBar style="auto" />
       <Footer />
-    </View>
+    </View>*/
+    <SkincareNavigator/>
   );
 }
 
