@@ -50,6 +50,7 @@ function DeleteModal({
     },
     modalMessage: {
       fontSize: 18,
+      fontFamily:"kaisei-extraBold",
     },
     modalTitle: {
       fontSize: 26,

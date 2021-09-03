@@ -1,20 +1,21 @@
-import {
-  Button,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
 import React, { useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
 import AddItem from './components/AddItem';
+import { AntDesign } from '@expo/vector-icons';
+import ButtonSwitch from "./components/ButtonSwitch";
 import COLORS from "./constants/Colors"
+import Footer from "./components/Footer";
 import Header from './components/Header';
-import List from "./components/List";
+import List from "./components/List/index";
 import Modal from './components/Modal';
+import Products from './screens/Products';
 import { StatusBar } from 'expo-status-bar';
+import { useFonts } from 'expo-font';
 
 export default function App() {
+
+const [userProduct, setUserProduct]= useState("");
   const [inputText, setInputText] = useState('');
   const [inputError, setInputError] = useState('');
   const [itemList, setItemList] = useState([]);
@@ -50,20 +51,43 @@ export default function App() {
     setItemSelected({});
   }
 
+  
+
+  const [loaded] = useFonts({
+    "kaisei-regular": require('./assets/fonts/KaiseiTokumin-Regular.ttf'),
+    "kaisei-medium": require('./assets/fonts/KaiseiTokumin-Medium.ttf'),
+    "kaisei-Bold": require('./assets/fonts/KaiseiTokumin-Bold.ttf'),
+    "kaisei-extraBold": require('./assets/fonts/KaiseiTokumin-ExtraBold.ttf'),
+  });
+  
+  if (!loaded) {
+    return null;
+  }
+
   const handleModal = id => {
     setItemSelected(itemList.find(item => item.id === id));
     setModalVisible(true);
   }
 
+  const handlerList = selectedProduct => {
+    setUserProduct(selectedProduct);
+  }
+
+  let content;
+
+  if(userProduct){
+    content = <Products />
+  }
+
   return (
     <View style={styles.screen}>
       <Header title="Rutina de Cuidado Facial" />
-      <AddItem
+    <AddItem
         handleChangeText={handleChangeText}
         handleAddItem={handleAddItem}
         inputError={inputError}
         inputText={inputText}
-      />
+    />
       <List
         itemList={itemList}
         handleModal={handleModal}
@@ -73,10 +97,13 @@ export default function App() {
         handleConfirmDelete={handleConfirmDelete}
         itemSelected={itemSelected}
       />
-      <StatusBar style="auto" />
+      {content}
+     <StatusBar style="auto" />
+      <Footer />
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   screen: {
