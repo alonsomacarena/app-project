@@ -1,5 +1,6 @@
 import {
   Button,
+  Dimensions,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -7,30 +8,41 @@ import {
 } from 'react-native';
 import React, { useState } from 'react';
 
-import ButtonSwitch from "../ButtonSwitch"
+import ButtonMain from '../Button';
 import COLORS from "../../constants/Colors";
+import { FontAwesome } from '@expo/vector-icons';
 
 const ListItem = ({ data, handleModal}) => {
   
   return (
+    <View style={styles.listContainer}>
     <View style={[styles.item, styles.shadow]}>
       <Text style={styles.itemText}>{data.item.value}</Text>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => handleModal(data.item.id)}
-      >
-        <Text style={styles.buttonTitle}>X</Text>
+        onPress={() => handleModal(data.item.id)} >
+        <FontAwesome name="trash" style={styles.buttonTitle} color={COLORS.text} />
       </TouchableOpacity>
-      <ButtonSwitch buttonTitle="FAV" />
+    </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  listContainer:{
+flexDirection: "column",
+flex: 1,
+alignItems: "flex-start",
+justifyContent: "center",
+width: "100%",
+marginLeft: "5%",
+marginTop: Dimensions.get('window').height > 600 ? 20 : 10,
+  },
   item: {
-    padding: 10,
-    marginTop: 10,
-    marginBottom: 10,
+    width: "75%",
+    padding: "5%",
+    marginTop: "5%",
+    marginBottom: "5%",
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -46,8 +58,8 @@ const styles = StyleSheet.create({
       fontFamily:"kaisei-medium",
   },
   button: {
-    width: "10%",
-    height: 40,
+    width: "15%",
+    height: 35,
     backgroundColor: COLORS.accent,
     alignItems: "center",
     justifyContent: "center",
@@ -55,8 +67,7 @@ const styles = StyleSheet.create({
     
 },
 buttonTitle:{
-    fontSize: 15,
-    color: COLORS.text,
+    fontSize: 18,
     fontFamily:"kaisei-extraBold",
 },
 shadow: {

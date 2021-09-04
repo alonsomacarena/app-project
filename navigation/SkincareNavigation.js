@@ -13,10 +13,10 @@ const SkincareNavigator = () => (
   <NavigationContainer>
     <Stack.Navigator initialRouteName="Home">
       <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="ProductsScreen" component={ProductsScreen} />
-      <Stack.Screen name="RoutineScreen" component={RoutineScreen} />
-      <Stack.Screen name="DiaryScreen" component={DiaryScreen} />
-      <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+      <Stack.Screen name="Products" component={ProductsScreen} />
+      <Stack.Screen name="Routine" component={RoutineScreen} />
+      <Stack.Screen name="Diary" component={DiaryScreen} />
+      <Stack.Screen name="Profile" component={ProfileScreen} />
     </Stack.Navigator>
   </NavigationContainer>
 );

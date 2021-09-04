@@ -18,7 +18,7 @@ const List = ({ itemList, handleModal }) => {
 
 const styles = StyleSheet.create({
   items: {
-    marginTop: 20,
+    marginTop: "10%",
   },
 });
 

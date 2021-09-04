@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     buttonTitle:{
         fontSize: 15,
         color: COLORS.text,
+        fontFamily:"kaisei-extraBold",
     },
 });
 

@@ -10,11 +10,8 @@ import {
 import COLORS from "../constants/Colors";
 import React from 'react';
 
-function DeleteModal({
-    modalVisible,
-    itemSelected,
-    handleConfirmDelete,
-  }) {
+function DeleteModal({  modalVisible, itemSelected, handleConfirmDelete, }) {
+  
     return (
       <Modal animationType="slide" visible={modalVisible} transparent>
         <View style={styles.modalContainer}>
@@ -47,16 +44,18 @@ function DeleteModal({
       alignSelf: 'center',
       alignItems: 'center',
       justifyContent: 'center',
+      borderRadius: 6,
     },
     modalMessage: {
       fontSize: 18,
-      fontFamily:"kaisei-extraBold",
+      fontFamily:"kaisei-Bold",
     },
     modalTitle: {
       fontSize: 26,
       marginTop: 10,
       marginBottom: 20,
       textTransform: 'uppercase',
+      fontFamily:"kaisei-extraBold",
     },
     shadow: {
       shadowColor: "#000",
@@ -82,6 +81,7 @@ function DeleteModal({
     buttonTitle:{
         fontSize: 15,
         color: COLORS.text,
+        fontFamily:"kaisei-Bold",
     },
   })
   

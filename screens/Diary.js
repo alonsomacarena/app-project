@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native';
 
 import React from 'react';
+import TopTitle from '../components/TopTitle';
 
 const DiaryScreen = () => {
   return (
     <View style={styles.screen}>
-      <Text>Diary Screen</Text>
+        <TopTitle title="Photo Diary" />
     </View>
   )
 }
