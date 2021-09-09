@@ -42,13 +42,6 @@ const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
   return (
     <Tab.Navigator style={styles.tabNavigationContainer}
-    
-   /* screenOptions={({route}) => ({
-        tabBarIcon: ({color}) => screenOptions(route, color),
-        tabBarActiveTintColor: COLORS.accent,
-        tabBarInactiveTintColor: COLORS.primary,
-      })}*/
-
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
@@ -81,6 +74,8 @@ const TabNavigator = () => {
         },
         tabBarActiveTintColor: COLORS.accent,
         tabBarInactiveTintColor: COLORS.text,
+
+        tabBarStyle:{backgroundColor: COLORS.primary, paddingTop:5, paddingBottom:5,},
  })}
       tabBar={(props) => <CustomTabBar {...props} />}
       >
