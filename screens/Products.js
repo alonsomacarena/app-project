@@ -8,8 +8,9 @@ import List from "../components/List/index";
 import Modal from "../components/Modal";
 import { StatusBar } from 'expo-status-bar';
 import TopTitle from '../components/TopTitle';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const ProductsScreen = () => {
+const ProductsScreen = ({navigation}) => {
   const [inputText, setInputText] = useState('');
   const [inputError, setInputError] = useState('');
   const [itemList, setItemList] = useState([]);
@@ -70,6 +71,10 @@ const ProductsScreen = () => {
         itemSelected={itemSelected}
       />
      <StatusBar style="auto" />
+{/*este touchableOpacity va a pushear screens nuevas al fondo con un mensaje a la nueva pantalla */}
+     <TouchableOpacity onPress={()=>navigation.navigate("NestesScreen",{msg:"Desde Products"})} style={styles.button} > 
+     <Text>Ir a Categorias</Text>
+       </TouchableOpacity>
     </View>
   )
 }
@@ -79,6 +84,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  button:{
+    backgroundColor: COLORS.accent,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
   },
 });
 

@@ -8,10 +8,15 @@ import Footer from "./components/Footer";
 import Header from './components/Header';
 import List from "./components/List/index";
 import Modal from './components/Modal';
+import { NavigationContainer } from '@react-navigation/native';
 import Products from './screens/Products';
+import { ProductsScreenNavigator } from './navigation/CustomNavigation';
 import RootNavigator from './navigation/RootNavigation';
 import SkincareNavigator from './navigation/SkincareNavigation';
 import { StatusBar } from 'expo-status-bar';
+import TabNavigator from './navigation/TabNavigation';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts } from 'expo-font';
 
 export default function App() {
@@ -27,11 +32,19 @@ export default function App() {
     return null;
   }
 
+  const Stack = createNativeStackNavigator();
+  const Tab = createBottomTabNavigator();
+
 
   return (
     /*<SkincareNavigator/>*/
     <SafeAreaView style={styles.container}>
-    <RootNavigator />
+    <NavigationContainer>
+      {/*no se imprime nada*/}
+    <Tab.Screen name="Categories" component={ProductsScreenNavigator} />
+      <TabNavigator />
+      
+    </NavigationContainer>
     </SafeAreaView>
   );
 }
