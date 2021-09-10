@@ -1,22 +1,12 @@
-import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
-import AddItem from './components/AddItem';
-import { AntDesign } from '@expo/vector-icons';
-import COLORS from "./constants/Colors"
-import Footer from "./components/Footer";
-import Header from './components/Header';
-import List from "./components/List/index";
-import Modal from './components/Modal';
-import { NavigationContainer } from '@react-navigation/native';
-import Products from './screens/Products';
-import { ProductsScreenNavigator } from './navigation/CustomNavigation';
-import RootNavigator from './navigation/RootNavigation';
-import SkincareNavigator from './navigation/SkincareNavigation';
+import AppLoading from 'expo-app-loading';
+import BreadNavigator from './navigation/BreadNavigator';
+import COLORS from "./constants/Colors";
+import { Provider } from 'react-redux';
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import TabNavigator from './navigation/TabNavigation';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import store from './store';
 import { useFonts } from 'expo-font';
 
 export default function App() {
@@ -32,31 +22,21 @@ export default function App() {
     return null;
   }
 
-  const Stack = createNativeStackNavigator();
-  const Tab = createBottomTabNavigator();
+  
 
 
   return (
-    /*<SkincareNavigator/>*/
-    <SafeAreaView style={styles.container}>
-    <NavigationContainer>
-      {/*no se imprime nada*/}
-    <Tab.Screen name="Categories" component={ProductsScreenNavigator} />
-      <TabNavigator />
-      
-    </NavigationContainer>
-    </SafeAreaView>
+    <Provider store={store}>
+      <BreadNavigator />
+    </Provider>
   );
 }
 
-
 const styles = StyleSheet.create({
- /* screen: {
-    padding: 30,
-    backgroundColor: COLORS.bg,
-    flex: 1,
-  },*/
   container: {
     flex: 1,
+    backgroundColor: COLORS.bg,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
