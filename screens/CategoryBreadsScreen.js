@@ -1,8 +1,10 @@
+import { FlatList, View } from 'react-native';
 import React, { useEffect } from 'react';
-import { FlatList } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
+import { filterBreads, selectBread } from '../store/actions/bread.actions';
+import { useDispatch, useSelector } from 'react-redux';
+
 import BreadItem from '../components/BreadItem';
-import { selectBread, filterBreads } from '../store/actions/bread.actions';
+import TopTitle from '../components/TopTitle';
 
 export default function CategoryBreadsScreen({ navigation }) {
   const dispatch = useDispatch();
@@ -25,10 +27,14 @@ export default function CategoryBreadsScreen({ navigation }) {
   )
 
   return (
+    <View>
+    <TopTitle title="Los mejores Productos" />
+
     <FlatList
       data={breads}
       keyExtractor={item => item.id}
       renderItem={renderItemBread}
     />
+    </View>
   );
 }

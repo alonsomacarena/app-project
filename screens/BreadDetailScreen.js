@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native';
 
+import COLORS from "../constants/Colors";
 import React from 'react';
+import TopTitle from '../components/TopTitle';
 import { useSelector } from 'react-redux';
 
 export default function BreadDetailScreen() {
@@ -10,10 +12,13 @@ export default function BreadDetailScreen() {
   
   return (
     <View style={styles.container}>
+      <TopTitle title="Producto preferido" />
+      <View style={styles.detailContainer}>
       <Text style={styles.title}>{bread.name}</Text>
       <Text>{bread.description}</Text>
       <Text>$ {bread.price}</Text>
       <Text>{bread.weight}</Text>
+      </View>
     </View>
   );
 }
@@ -21,9 +26,17 @@ export default function BreadDetailScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.bg,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  detailContainer: {
+    padding: 20,
+    margin: 10,
+    borderRadius: 3,
+    backgroundColor: COLORS.bg,
+    borderColor: COLORS.text,
+    borderWidth: 1,
   },
   title: {
     fontSize: 20,

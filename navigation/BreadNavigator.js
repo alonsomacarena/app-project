@@ -40,6 +40,7 @@ const BreadNavigator = () => (
         component={CategoryBreadScreen}
         options={({ route }) => ({
           title: route.params.name,
+          headerStyle: { backgroundColor: COLORS.primary },
         })}
       />
       <Stack.Screen
@@ -47,6 +48,7 @@ const BreadNavigator = () => (
         component={BreadDetailScreen}
         options={({ route }) => ({
           title: route.params.name,
+          headerStyle: { backgroundColor: COLORS.primary },
         })}
       />
     </Stack.Navigator>

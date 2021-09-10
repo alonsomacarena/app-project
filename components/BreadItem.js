@@ -5,6 +5,7 @@ import {
   View,
 } from 'react-native';
 
+import COLORS from "../constants/Colors";
 import React from 'react';
 
 const BreadItem = ({ item, onSelected }) => {
@@ -28,7 +29,9 @@ const styles = StyleSheet.create({
     padding: 20,
     margin: 10,
     borderRadius: 3,
-    backgroundColor: '#ccc'
+    backgroundColor: COLORS.bg,
+    borderColor: COLORS.text,
+    borderWidth: 1,
   },
   title: {
     fontSize: 20,

@@ -1,8 +1,11 @@
-import React from 'react';
-import { FlatList } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectCategory } from '../store/actions/category.actions';
+import { FlatList, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+
 import GridItem from '../components/GridItem';
+import React from 'react';
+import TopTitle from '../components/TopTitle';
+import TopTitleSpecial from "../components/TopTitleSpecial";
+import { selectCategory } from '../store/actions/category.actions';
 
 export default function CategoriesScreen({ navigation }) {
   const dispatch = useDispatch();
@@ -20,11 +23,15 @@ export default function CategoriesScreen({ navigation }) {
   );
 
   return (
+    <View>
+      <TopTitleSpecial title="Hola 'Nombre'," />
+            <TopTitle title="Elige los productos para tu rutina" />
     <FlatList
       data={categories}
       keyExtractor={item => item.id}
       renderItem={renderGridItem}
-      numColumns={2}
+      numColumns={2} 
     />
+    </View>
   );
 }
