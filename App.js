@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native';
 
 import AppLoading from 'expo-app-loading';
-import BreadNavigator from './navigation/BreadNavigator';
 import COLORS from "./constants/Colors";
+import ProductNavigator from './navigation/ProductNavigator';
 import { Provider } from 'react-redux';
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
@@ -27,7 +27,7 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <BreadNavigator />
+      <ProductNavigator />
     </Provider>
   );
 }

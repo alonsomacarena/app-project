@@ -27,8 +27,11 @@ const styles = StyleSheet.create({
   gridItem: {
     flex: 1,
     borderRadius: 6,
-    margin: 15,
-    height: 150,
+    height: 125,
+    marginLeft: "4%",
+    marginRight: "4%",
+    marginBottom: 10,
+    marginTop: 10,
   },
   container: {
     flex: 1,
@@ -40,11 +43,13 @@ const styles = StyleSheet.create({
     elevation: 3,
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
-    padding: 8,
+    paddingBottom: 15,
+    paddingRight:8,
   },
   title: {
     fontFamily: 'kaisei-Bold',
-    textAlign: 'right'
+    textAlign: 'right',
+    fontSize: 15,
   }
 });
 

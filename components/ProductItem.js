@@ -16,8 +16,7 @@ const ProductItem = ({ item, onSelected }) => {
           <Text style={styles.title}>{item.name}</Text>
         </View>
         <View>
-          <Text style={styles.details}>$ {item.price}</Text>
-          <Text style={styles.details}>{item.weight}</Text>
+          <Text style={styles.details}>{item.brand}</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -27,8 +26,10 @@ const ProductItem = ({ item, onSelected }) => {
 const styles = StyleSheet.create({
   productItem: {
     padding: 20,
-    margin: 10,
-    borderRadius: 3,
+    marginTop: 10,
+    marginRight: "5%",
+    marginLeft: "5%",
+    borderRadius: 6,
     backgroundColor: COLORS.bg,
     borderColor: COLORS.text,
     borderWidth: 1,

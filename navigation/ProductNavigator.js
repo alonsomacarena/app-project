@@ -19,7 +19,7 @@ const ProductNavigator = () => (
       initialRouteName="Home"
       screenOptions={{
         headerStyle: {
-          backgroundColor: Platform.OS === 'android' ? COLORS.primary : '',
+          backgroundColor: Platform.OS === 'android' ? COLORS.accent : '',
         },
         headerTintColor: Platform.OS === 'android' ? 'white' : COLORS.text,
         headerTitleStyle: {
@@ -32,7 +32,7 @@ const ProductNavigator = () => (
         component={CategoriesScreen}
         options={{
           title: 'Home',
-          headerStyle: { backgroundColor: COLORS.primary },
+          headerStyle: { backgroundColor: COLORS.accent },
         }}
       />
       <Stack.Screen
@@ -40,7 +40,7 @@ const ProductNavigator = () => (
         component={CategoryProductsScreen}
         options={({ route }) => ({
           title: route.params.name,
-          headerStyle: { backgroundColor: COLORS.primary },
+          headerStyle: { backgroundColor: COLORS.accent },
         })}
       />
       <Stack.Screen
@@ -48,7 +48,7 @@ const ProductNavigator = () => (
         component={ProductDetailScreen}
         options={({ route }) => ({
           title: route.params.name,
-          headerStyle: { backgroundColor: COLORS.primary },
+          headerStyle: { backgroundColor: COLORS.accent },
         })}
       />
     </Stack.Navigator>
