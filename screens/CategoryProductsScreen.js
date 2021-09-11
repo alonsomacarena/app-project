@@ -1,29 +1,29 @@
 import { FlatList, View } from 'react-native';
 import React, { useEffect } from 'react';
-import { filterBreads, selectBread } from '../store/actions/bread.actions';
+import { filterProducts, selectProduct } from '../store/actions/product.actions';
 import { useDispatch, useSelector } from 'react-redux';
 
-import BreadItem from '../components/BreadItem';
+import ProductItem from '../components/ProductItem';
 import TopTitle from '../components/TopTitle';
 
-export default function CategoryBreadsScreen({ navigation }) {
+export default function CategoryProductsScreen({ navigation }) {
   const dispatch = useDispatch();
   const categoryID = useSelector(state => state.categories.selectedID);
-  const breads = useSelector(state => state.breads.filteredBreads);
+  const products = useSelector(state => state.products.filteredProducts);
 
   useEffect(() => {
-    dispatch(filterBreads(categoryID));
+    dispatch(filterProducts(categoryID));
   }, [categoryID]);
 
   const handleSelected = (item) => {
-    dispatch(selectBread(item.id));
+    dispatch(selectProduct(item.id));
     navigation.navigate('Detail', {
       name: item.name,
     });
   }
 
-  const renderItemBread = ({ item }) => (
-    <BreadItem item={item} onSelected={handleSelected} />
+  const renderItemProduct = ({ item }) => (
+    <ProductItem item={item} onSelected={handleSelected} />
   )
 
   return (
@@ -31,9 +31,9 @@ export default function CategoryBreadsScreen({ navigation }) {
     <TopTitle title="Los mejores Productos" />
 
     <FlatList
-      data={breads}
+      data={products}
       keyExtractor={item => item.id}
-      renderItem={renderItemBread}
+      renderItem={renderItemProduct}
     />
     </View>
   );

@@ -5,19 +5,17 @@ import React from 'react';
 import TopTitle from '../components/TopTitle';
 import { useSelector } from 'react-redux';
 
-export default function BreadDetailScreen() {
-  const breadID = useSelector(state => state.breads.selectedID);
-  const breads = useSelector(state => state.breads.list);
-  const bread = breads.find(item => item.id === breadID);
+export default function ProductDetailScreen() {
+  const productID = useSelector(state => state.products.selectedID);
+  const products = useSelector(state => state.products.list);
+  const product = products.find(item => item.id === productID);
   
   return (
     <View style={styles.container}>
       <TopTitle title="Producto preferido" />
       <View style={styles.detailContainer}>
-      <Text style={styles.title}>{bread.name}</Text>
-      <Text>{bread.description}</Text>
-      <Text>$ {bread.price}</Text>
-      <Text>{bread.weight}</Text>
+      <Text style={styles.title}>{product.name}</Text>
+      <Text>{product.description}</Text>
       </View>
     </View>
   );

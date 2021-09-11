@@ -1,9 +1,9 @@
-import BreadDetailScreen from '../screens/BreadDetailScreen';
 import COLORS from '../constants/Colors';
 import CategoriesScreen from '../screens/CategoriesScreen';
-import CategoryBreadScreen from '../screens/CategoryBreadsScreen';
+import CategoryProductsScreen from '../screens/CategoryProductsScreen';
 import { NavigationContainer } from "@react-navigation/native";
 import { Platform } from 'react-native';
+import ProductDetailScreen from '../screens/ProductDetailScreen';
 import React from 'react';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -13,7 +13,7 @@ const ROUTES = {
   HOME: 'Home',
 }
 
-const BreadNavigator = () => (
+const ProductNavigator = () => (
   <NavigationContainer>
     <Stack.Navigator
       initialRouteName="Home"
@@ -37,7 +37,7 @@ const BreadNavigator = () => (
       />
       <Stack.Screen
         name="Products"
-        component={CategoryBreadScreen}
+        component={CategoryProductsScreen}
         options={({ route }) => ({
           title: route.params.name,
           headerStyle: { backgroundColor: COLORS.primary },
@@ -45,7 +45,7 @@ const BreadNavigator = () => (
       />
       <Stack.Screen
         name="Detail"
-        component={BreadDetailScreen}
+        component={ProductDetailScreen}
         options={({ route }) => ({
           title: route.params.name,
           headerStyle: { backgroundColor: COLORS.primary },
@@ -55,4 +55,4 @@ const BreadNavigator = () => (
   </NavigationContainer>
 );
 
-export default BreadNavigator;
+export default ProductNavigator;
