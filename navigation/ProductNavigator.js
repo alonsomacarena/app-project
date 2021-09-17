@@ -1,7 +1,6 @@
 import COLORS from '../constants/Colors';
 import CategoriesScreen from '../screens/CategoriesScreen';
 import CategoryProductsScreen from '../screens/CategoryProductsScreen';
-import { NavigationContainer } from "@react-navigation/native";
 import { Platform } from 'react-native';
 import ProductDetailScreen from '../screens/ProductDetailScreen';
 import React from 'react';
@@ -14,7 +13,6 @@ const ROUTES = {
 }
 
 const ProductNavigator = () => (
-  <NavigationContainer>
     <Stack.Navigator
       initialRouteName="Home"
       screenOptions={{
@@ -52,7 +50,6 @@ const ProductNavigator = () => (
         })}
       />
     </Stack.Navigator>
-  </NavigationContainer>
 );
 
 export default ProductNavigator;
