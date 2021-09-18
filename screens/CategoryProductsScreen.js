@@ -1,15 +1,15 @@
-import { FlatList, View } from 'react-native';
+import { FlatList, StyleSheet, View } from "react-native";
 import React, { useEffect } from 'react';
+import { connect, useDispatch, useSelector } from 'react-redux'
 import { filterProducts, selectProduct } from '../store/actions/product.actions';
-import { useDispatch, useSelector } from 'react-redux';
 
 import ProductItem from '../components/ProductItem';
 import TopTitle from '../components/TopTitle';
 
-export default function CategoryProductsScreen({ navigation }) {
+const CategoryProductsScreen = ({navigation}) => {
   const dispatch = useDispatch();
   const categoryID = useSelector(state => state.categories.selectedID);
-  const products = useSelector(state => state.products.filteredProducts);
+  const product = useSelector(state => state.products.filteredProducts);
 
   useEffect(() => {
     dispatch(filterProducts(categoryID));
@@ -17,7 +17,7 @@ export default function CategoryProductsScreen({ navigation }) {
 
   const handleSelected = (item) => {
     dispatch(selectProduct(item.id));
-    navigation.navigate('Detail', {
+    navigation.push('Detail', {
       name: item.name,
     });
   }
@@ -31,10 +31,11 @@ export default function CategoryProductsScreen({ navigation }) {
     <TopTitle title="Los mejores Productos" />
 
     <FlatList
-      data={products}
-      keyExtractor={item => item.id}
+      data={product}
+      keyExtractor={(item) => item.id.toString()}
       renderItem={renderItemProduct}
     />
     </View>
   );
 }
+export default connect()(CategoryProductsScreen)

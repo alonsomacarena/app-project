@@ -84,12 +84,12 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     borderBottomColor: '#ccc',
     borderBottomWidth: 1,
-    fontFamily: "kaisei-regular",
+    fontFamily: "kaisei-Regular",
   },
   errorText: {
     marginVertical: 5,
     color: '#cc7755',
-    fontFamily: "kaisei-regular",
+    fontFamily: "kaisei-Regular",
   }
 });
 

@@ -14,7 +14,7 @@ const TopTitleSpecial = props => {
 
 const styles = StyleSheet.create({
     header: {
-        width: "50%",
+        width: "60%",
         height: "15%",
         marginTop: "2%",
         backgroundColor: "transparent",

@@ -1,5 +1,5 @@
-import { FlatList, View } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { FlatList, StyleSheet, View } from 'react-native'
+import { connect, useDispatch, useSelector } from 'react-redux'
 
 import GridItem from '../components/GridItem';
 import React from 'react';
@@ -7,13 +7,13 @@ import TopTitle from '../components/TopTitle';
 import TopTitleSpecial from "../components/TopTitleSpecial";
 import { selectCategory } from '../store/actions/category.actions';
 
-export default function CategoriesScreen({ navigation }) {
+const CategoriesScreen = ({navigation}) => {
   const dispatch = useDispatch();
-  const categories = useSelector(state => state.categories.list); 
+  const categories = useSelector(state => state.categories.list)
 
   const handleSelectedCategory = (item) => {
     dispatch(selectCategory(item.id));
-    navigation.navigate('Products', {
+    navigation.push('Products', {
       name: item.title,
     });
   }
@@ -23,15 +23,24 @@ export default function CategoriesScreen({ navigation }) {
   );
 
   return (
-    <View>
+    <View style={styles.container}>
       <TopTitleSpecial title="Hola 'Nombre'," />
             <TopTitle title="Elige los productos para tu rutina" />
     <FlatList
       data={categories}
-      keyExtractor={item => item.id}
+      keyExtractor={(item) => item.id.toString()}
       renderItem={renderGridItem}
       numColumns={2} 
     />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+      flex: 1
+  }
+})
+
+
+export default connect()(CategoriesScreen)

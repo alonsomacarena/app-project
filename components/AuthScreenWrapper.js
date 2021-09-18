@@ -52,12 +52,12 @@ const styles = StyleSheet.create({
   },
   promptMessage: {
     fontSize: 16,
-    fontFamily: 'kaisei-regular',
+    fontFamily: 'kaisei-Regular',
     color: '#333',
   },
   promptButton: {
     fontSize: 16,
-    fontFamily: 'kaisei-medium',
+    fontFamily: 'kaisei-Medium',
     color: COLORS.text,
   },
   buttonSecondary:{
