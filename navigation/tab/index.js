@@ -37,7 +37,7 @@ const TabsShop = () => (
                 tabBarIcon: ({focused}) => (
                     <View style={styles.item}>
                        <Ionicons name="md-home" size={24} color="black" />
-                       <Text>Tienda</Text>
+                       <Text>Home</Text>
                     </View>
                 )
             }}

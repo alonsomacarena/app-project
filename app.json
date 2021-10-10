@@ -4,7 +4,7 @@
     "slug": "project",
     "version": "1.0.0",
     "orientation": "default",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/icon.png",
     "splash": {
       "image": "./assets/images/cream.png",
       "resizeMode": "contain",
@@ -21,12 +21,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#F1F2EE"
       }
     },
     "web": {
-      "favicon": "./assets/images/cream.png"
+      "favicon": "./assets/images/favicon.png"
     }
   }
 }

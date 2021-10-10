@@ -9,11 +9,12 @@ export default () => {
   
   return (
     <NavigationContainer>
-    { isLoggedIn ? (
+   {/* { isLoggedIn ? (
         <ShopNavigator />
         ) : (
           <AuthNavigator />
-      )}
+        )}*/}
+        <ShopNavigator />
       
     </NavigationContainer>
   )

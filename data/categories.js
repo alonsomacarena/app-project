@@ -18,17 +18,17 @@ export const CATEGORIES = [
   },
   {
     id: '4',
-    title: 'Limpiadores',
+    title: 'Gel Limpiador & Agua Micelar',
     color: COLORS.accent,
   },
   {
     id: '5',
-    title: 'Serums',
+    title: 'Sérum Facial',
     color: COLORS.primary,
   },
   {
     id: '6',
-    title: 'Crema para Ojos',
+    title: 'Crema Contorno de Ojos',
     color: COLORS.accent,
   },
 ];

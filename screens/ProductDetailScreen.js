@@ -30,18 +30,18 @@ const ProductDetailScreen = ({navigation}) => {
       <Text style={styles.price}>$ {product.price}</Text>
         </View>
         <Button
-        title="Agregar al carrito"
+        title="Agregar a Favoritos"
         icon={<Ionicons name="add" size={24} color="white" />}
         buttonStyle={styles.button}
         onPress={handlerAddItemCart}
       />
-      <FAB
+      {/*<FAB
         icon={<Ionicons name="cart" size={24} color={COLORS.text} />}
         placement="right"
         color={COLORS.accent}
         buttonStyle={styles.buttonFab}
         onPress={() => navigation.navigate('CartScreen')}
-      />
+      />*/}
     </View>
 </View>
   );
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     marginLeft: "5%",
     marginRight: "5%",
     borderRadius: 6,
-    backgroundColor: COLORS.bg,
+    backgroundColor: COLORS.primary,
     borderColor: COLORS.text,
     borderWidth: 1,
   },
@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'kaisei-extraBold',
     marginBottom: 10,
+    color: COLORS.accent
   },
   subTitle: {
     fontSize: 18,
@@ -87,7 +88,7 @@ description: {
     fontFamily: 'kaisei-Medium'
 },
 button: {
-  backgroundColor: COLORS.primary,
+  backgroundColor: COLORS.accent,
   marginVertical: 20,
   fontFamily: 'kaisei-extraBold',
 },
