@@ -15,10 +15,12 @@ const RegisterScreen = () => {
   const dispatch = useDispatch();
   const [formState, formDispatch] = useReducer(formReducer, {
     inputValues: {
+      user: "",
       email: '',
       password: '', 
     },
     inputValidities: {
+      user: false,
       email: false,
       password: false,
     },
@@ -27,7 +29,7 @@ const RegisterScreen = () => {
 
   const handleSignUp = () => {
     if (formState.formIsValid) {
-      dispatch(signup(formState.inputValues.email, formState.inputValues.password));
+      dispatch(signup(formState.inputValues.email, formState.inputValues.password, formState.inputValues.user));
     } else {
       Alert.alert(
         'Formulario inválido',
@@ -53,6 +55,10 @@ const RegisterScreen = () => {
       buttonText="INGRESAR"
       buttonPath="Login"
     >
+      <Input id="user" label="Nombre"
+        required
+        minLength={4}
+        onInputChange={onInputChangeHandler}/>
       <Input
         id="email"
         label="Email"

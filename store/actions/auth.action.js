@@ -3,7 +3,7 @@ import { URL_AUTH_API, URL_LOGIN_API } from '../../constants/database';
 export const SIGNUP = 'SIGNUP';
 export const LOGIN = 'LOGIN';
 
-export const signup = (email, password) => {
+export const signup = (email, password, user) => {
   return async dispatch => {
     const response = await fetch(URL_AUTH_API, {
       method: 'POST',
@@ -11,6 +11,7 @@ export const signup = (email, password) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        user,
         email,
         password,
         returnSecureToken: true,
@@ -37,7 +38,7 @@ export const signup = (email, password) => {
   }
 }
 
-export const login = (email, password) => {
+export const login = (email, password, user) => {
   return async dispatch => {
     const response = await fetch(URL_LOGIN_API, {
       method: 'POST',
@@ -45,6 +46,7 @@ export const login = (email, password) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        user,
         email,
         password,
         returnSecureToken: true,
