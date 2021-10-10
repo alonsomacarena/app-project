@@ -9,7 +9,7 @@ export const CATEGORIES = [
   {
     id: '2',
     title: 'Cremas Hidratantes Noche',
-    color: COLORS.primary,
+    color: COLORS.accent,
   },
   {
     id: '3',
@@ -19,7 +19,7 @@ export const CATEGORIES = [
   {
     id: '4',
     title: 'Limpiadores',
-    color: COLORS.primary,
+    color: COLORS.accent,
   },
   {
     id: '5',
@@ -29,6 +29,6 @@ export const CATEGORIES = [
   {
     id: '6',
     title: 'Crema para Ojos',
-    color: COLORS.primary,
+    color: COLORS.accent,
   },
 ];

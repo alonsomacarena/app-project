@@ -5,7 +5,7 @@ export const PRODUCTS = [
     name: 'Crema Hidratante Antienrojecimiento',
     description: 'con pigmento verde, FPS 25 + Proteccion rayos UVA',
     brand:"Eucerin",
-    price: 100,
+    price: 1000,
   },
   {
     id: '2',
@@ -13,7 +13,7 @@ export const PRODUCTS = [
     name: 'Crema Toleriane Sensitive',
     description: 'prebiótico que hidrata, calma y reduce la sensibilidad',
     brand:"La Roche-Posay",
-    price: 100,
+    price: 1000,
   },
   {
     id: '3',
@@ -21,7 +21,7 @@ export const PRODUCTS = [
     name: 'BB Cream Hidratación Sensible',
     description: 'con color, FPS 30, hipoalergénico, sin parabenos y sin TACC',
     brand:"Dermaglós",
-    price: 100,
+    price: 1000,
   },
   {
     id: '4',
@@ -29,15 +29,15 @@ export const PRODUCTS = [
     name: 'Sensibio AR BB Cream',
     description: 'ideal para pieles sensibles enrojecidas, SPF 30, hipoalergenica, fórmula perfumada',
     brand:"Bioderma",
-    price: 100,
+    price: 1000,
   },
   {
     id: '5',
     category: '2',
-    name: 'Crema Hidratante Antienrojecimiento',
-    description: 'con pigmento verde, FPS 25 + Proteccion rayos UVA',
-    brand:"Eucerin",
-    price: 100,
+    name: "Crema noche L'Oréal Paris Revitalift",
+    description: 'con ácido hialuronico con hidratación tan intensa que rellena las líneas de expresión desde adentro',
+    brand:"L'Oréal Paris",
+    price: 1000,
   },
   {
     id: '6',

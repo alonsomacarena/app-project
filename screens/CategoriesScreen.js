@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, View } from 'react-native'
+import { Dimensions, FlatList, ScrollView, StyleSheet, View } from 'react-native'
 import { connect, useDispatch, useSelector } from 'react-redux'
 
 import GridItem from '../components/GridItem';
@@ -24,13 +24,15 @@ const CategoriesScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <TopTitleSpecial title="Hola 'Nombre'," />
+      <TopTitleSpecial title="Hola," />
             <TopTitle title="Elige los productos para tu rutina" />
     <FlatList
       data={categories}
       keyExtractor={(item) => item.id.toString()}
-      renderItem={renderGridItem}
-      numColumns={2} 
+      renderItem={renderGridItem} 
+      //numColumns={2}
+    horizontal
+contentContainerStyle={styles.list}
     />
     </View>
   );
@@ -38,8 +40,15 @@ const CategoriesScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-      flex: 1
+      flex: 1,
+      backgroundColor: "transparent",
+  },
+  list:{
+marginRight: 100,
+marginLeft:"2%",
+marginTop: "5%",
   }
+
 })
 
 
