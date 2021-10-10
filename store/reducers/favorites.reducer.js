@@ -1,4 +1,4 @@
-import { ADD_ITEM, CONFIRM_CART, REMOVE_ITEM } from '../actions/cart.actions';
+import { ADD_ITEM, CONFIRM_FAVORITES, REMOVE_ITEM } from '../actions/favorites.actions';
 
 const INITIAL_STATE = {
   items: [],
@@ -11,18 +11,18 @@ const sumTotal = (list) => list
   .map(item => item.quantity * item.price)
   .reduce((a, b) => a + b, 0);
 
-const CartReducer = (state = INITIAL_STATE, action) => {
+const FavoritesReducer = (state = INITIAL_STATE, action) => {
   switch(action.type) {
     case ADD_ITEM:
       const index = state.items.findIndex(item => item.id === action.item.id);
       if (index === -1) {
         const item = { ...action.item, quantity: 1 };
-        const updateCart = [...state.items, item];
+        const updateFavorites = [...state.items, item];
 
         return {
           ...state,
-          items: updateCart,
-          total: sumTotal(updateCart),
+          items: updateFavorites,
+          total: sumTotal(updateFavorites),
         };
       }
 
@@ -43,7 +43,7 @@ const CartReducer = (state = INITIAL_STATE, action) => {
         items: updateItems,
         total: sumTotal(updateItems),
       };
-    case CONFIRM_CART:
+    case CONFIRM_FAVORITES:
       return {
         ...state,
         items: [],
@@ -54,4 +54,4 @@ const CartReducer = (state = INITIAL_STATE, action) => {
   };
 };
 
-export default CartReducer;
+export default FavoritesReducer;

@@ -1,14 +1,14 @@
 import COLORS from '../../constants/Colors'
-import OrderScreen from "../../screens/OrderScreen";
+import DiaryScreen from '../../screens/DiaryScreen';
 import { Platform } from 'react-native'
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const OrderStack = createNativeStackNavigator();
+const DiaryStack = createNativeStackNavigator();
 
-const OrderNavigator = () => (
-    <OrderStack.Navigator
-        initialRouteName="Orders"
+const DiaryNavigator = () => (
+    <DiaryStack.Navigator
+        initialRouteName="Diary"
         screenOptions={{
             headerStyle: {
                         backgroundColor: COLORS.accent          
@@ -19,12 +19,12 @@ const OrderNavigator = () => (
             }
         }}
     >
-        <OrderStack.Screen 
-            name="Orders" 
-            component={OrderScreen}
-            options={{title: 'Ordenes'}} 
+        <DiaryStack.Screen 
+            name="Diaries" 
+            component={DiaryScreen}
+            options={{title: 'Registro Fotográfico'}} 
             
         />
-    </OrderStack.Navigator>
+    </DiaryStack.Navigator>
 )
-export default OrderNavigator
+export default DiaryNavigator

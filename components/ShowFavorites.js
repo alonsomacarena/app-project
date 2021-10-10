@@ -4,14 +4,16 @@ import { AntDesign } from '@expo/vector-icons'
 import COLORS from '../constants/Colors'
 import React from 'react'
 
-const ShowCart = ({navigation}) => {
+const ShowFavorites = ({navigation}) => {
 
-    const handlerShowCart = () => navigation.push('Cart')
+    
+
+    const handlerShowFavorites = () => navigation.push('Favoritos')
 
     return (
         <View>
-            <AntDesign name="shoppingcart" size={24} color={COLORS.text} />
-            <Button style={styles.button} title="Ver Carrito" onPress={handlerShowCart} color={COLORS.primary}/>
+            <AntDesign name="star" size={24} color={COLORS.text} />
+            <Button style={styles.button} title="Ver Favoritos" onPress={handlerShowFavorites} color={COLORS.primary}/>
         </View>
     )
 }
@@ -24,4 +26,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default ShowCart
+export default ShowFavorites;

@@ -1,12 +1,13 @@
 import { Button, FAB } from 'react-native-elements';
-import { StyleSheet, Text, View } from 'react-native';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { connect, useDispatch, useSelector } from 'react-redux'
 
 import COLORS from "../constants/Colors";
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import TopTitle from '../components/TopTitle';
-import { addItem } from "../store/actions/cart.actions";
+import { addItem } from "../store/actions/favorites.actions";
+import { confirmFavorites } from '../store/actions/favorites.actions';
 
 const ProductDetailScreen = ({navigation}) => {
   //const product = useSelector(state => state.products.selected)
@@ -15,26 +16,34 @@ const ProductDetailScreen = ({navigation}) => {
   const products = useSelector(state => state.products.list);
   const product = products.find(item => item.id === productID);
 
-  const handlerAddItemCart = () => {
+  const USERID = useSelector(state => state.auth.userId)
+  const ITEMS = useSelector(state => state.favorites.items)
+  
+  const handlerAddItemFavorites = () => {
     dispatch(addItem(product));
+  }
+  const handlerConfirmFavorites = () => {
+    dispatch(confirmFavorites(ITEMS, USERID));
   }
 
   return (
     <View style={styles.screen}>
     <View style={styles.container}>
+      <View style={styles.titleContainer}>
     <TopTitle title="Producto Seleccionado" />
+    </View>
       <View style={styles.detailContainer}>
       <Text style={styles.title}>{product.name}</Text>
       <Text style={styles.subTitle}>{product.brand}</Text>
       <Text style={styles.description}>{product.description}</Text>
-      <Text style={styles.price}>$ {product.price}</Text>
-        </View>
-        <Button
+      <Button
         title="Agregar a Favoritos"
-        icon={<Ionicons name="add" size={24} color="white" />}
+        icon={<Ionicons name="star" size={24} color={COLORS.bg} style={{paddingRight:6}}  onPress={handlerConfirmFavorites}  />}
         buttonStyle={styles.button}
-        onPress={handlerAddItemCart}
+        onPress={handlerAddItemFavorites} 
       />
+        </View>
+       
       {/*<FAB
         icon={<Ionicons name="cart" size={24} color={COLORS.text} />}
         placement="right"
@@ -50,47 +59,71 @@ const ProductDetailScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    padding: 10,
-    backgroundColor: COLORS.bg,
+    height: Dimensions.get("window").height,
 },
   container: {
-    flex: 0.9,
+   
     alignItems: 'center',
     justifyContent: 'center',
   },
+  titleContainer:{
+    marginTop:"8%",
+    marginBottom:"5%",
+    backgroundColor: COLORS.title,
+    padding: "5%",
+    borderRadius: 6,
+    borderColor: COLORS.text,
+    borderWidth: 1,
+    width: "90%",
+  },
   detailContainer: {
     padding: 20,
-    marginTop: 10,
+    marginTop: "10%",
+    marginBottom: "6%",
     marginLeft: "5%",
     marginRight: "5%",
     borderRadius: 6,
     backgroundColor: COLORS.primary,
     borderColor: COLORS.text,
     borderWidth: 1,
+    shadowColor: 'black',
+    shadowOpacity: 0.25,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
+    elevation: 3,
+    width: "90%",
   },
   title: {
     fontSize: 20,
     fontFamily: 'kaisei-extraBold',
     marginBottom: 10,
-    color: COLORS.accent
+    color: COLORS.accent,
   },
   subTitle: {
     fontSize: 18,
     fontFamily: 'kaisei-extraBold',
     marginBottom: 10,
+    color: COLORS.text,
   },
-  price: {
-    fontSize: 30,
-    fontFamily: 'kaisei-Medium',
-},
 description: {
     fontSize: 15,
-    fontFamily: 'kaisei-Medium'
+    fontFamily: 'kaisei-Medium',
+    color: COLORS.text,
 },
 button: {
   backgroundColor: COLORS.accent,
   marginVertical: 20,
   fontFamily: 'kaisei-extraBold',
+  borderRadius: 6,
+  shadowColor: 'black',
+  shadowOpacity: 0.25,
+  shadowOffset: { width: 0, height: 2 },
+  shadowRadius: 6,
+  elevation: 3,
+  borderColor: COLORS.bg,
+  borderWidth: 1,
+  padding: "4%",
+  marginTop:"15%",
 },
 });
 

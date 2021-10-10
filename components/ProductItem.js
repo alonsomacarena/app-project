@@ -37,9 +37,11 @@ const ProductItem = ({ item, onSelected }) => {
     title: {
       fontSize: 20,
       fontFamily: 'kaisei-extraBold',
+      color: COLORS.text,
     },
     details: {
       fontSize: 18,
+      color: COLORS.text,
     },
   });
   

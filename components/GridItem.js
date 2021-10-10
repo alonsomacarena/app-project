@@ -29,9 +29,9 @@ const styles = StyleSheet.create({
   gridItem: {
     flex: 3,
     borderRadius: 6,
-    marginBottom: 10,
     justifyContent: "flex-start",
-    marginTop: 0,
+    marginTop: "2%",
+    marginBottom:"50%",
     flexDirection: "row",
     flexWrap: "wrap",
     alignItems: "center",
@@ -59,7 +59,7 @@ justifyContent: "flex-end",
   title: {
     fontFamily: 'kaisei-Bold',
     textAlign: 'right',
-    fontSize: 12,
+    fontSize: 14,
   },
 
 });

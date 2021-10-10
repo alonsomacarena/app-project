@@ -9,22 +9,22 @@ export const CATEGORIES = [
   {
     id: '2',
     title: 'Cremas Hidratantes Noche',
-    color: COLORS.accent,
+    color: COLORS.title,
   },
   {
     id: '3',
     title: 'Cremas Antiage',
-    color: COLORS.primary,
+    color: COLORS.accent,
   },
   {
     id: '4',
     title: 'Gel Limpiador & Agua Micelar',
-    color: COLORS.accent,
+    color: COLORS.primary,
   },
   {
     id: '5',
     title: 'Sérum Facial',
-    color: COLORS.primary,
+    color: COLORS.title,
   },
   {
     id: '6',

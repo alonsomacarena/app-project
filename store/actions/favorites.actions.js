@@ -2,7 +2,9 @@ import { URL_API } from '../../constants/database';
 
 export const ADD_ITEM = 'ADD_ITEM';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
-export const CONFIRM_CART = 'CONFIRM_CART';
+export const CONFIRM_FAVORITES = 'CONFIRM_FAVORITES';
+
+
 
 export const addItem = (item) => ({
   type: ADD_ITEM,
@@ -14,15 +16,15 @@ export const removeItem = (itemID) => ({
   itemID,
 });
 
-export const confirmCart = (payload, userId) => {
+export const confirmFavorites = (payload, userId) => {
   return async dispatch => {
     try {
-      dispatch({
-        type: CONFIRM_CART,
+      /*dispatch({
+        type: CONFIRM_FAVORITES,
         status: 'loading',
-      });
+      });*/
 
-      const response = await fetch(`${URL_API}/ordenes.json`, {
+      const response = await fetch(`${URL_API}/favorites.json`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,13 +41,14 @@ export const confirmCart = (payload, userId) => {
       console.log(result)
 
       dispatch({
-        type: CONFIRM_CART,
+        type: CONFIRM_FAVORITES,
         status: 'success',
+        
       });
     } catch (error) {
       console.log(error.message);
       dispatch({
-        type: CONFIRM_CART,
+        type: CONFIRM_FAVORITES,
         status: 'error',
       });
     }

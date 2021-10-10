@@ -1,26 +1,28 @@
 import { Button, FAB } from 'react-native-elements';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
-import { confirmCart, removeItem } from '../store/actions/cart.actions';
+import { confirmFavorites, removeItem } from '../store/actions/favorites.actions';
 import { connect, useDispatch, useSelector } from 'react-redux'
 
 import COLORS from "../constants/Colors";
-import CartItem from '../components/CartItem';
+import FavoritesItem from '../components/FavoritesItem';
 import React from 'react';
+import TopTitle from '../components/TopTitle';
 
-const CartScreen = () => {
+const FavoritesScreen = () => {
  
-  const ITEMS = useSelector(state => state.cart.items)
-  const TOTAL = useSelector(state => state.cart.total)
+  const ITEMS = useSelector(state => state.favorites.items)
+  const TOTAL = useSelector(state => state.favorites.total)
   const USERID = useSelector(state => state.auth.userId)
+  
   
   const dispatch = useDispatch()
   
   const handlerDeleteItem = (id) => dispatch(removeItem(id))
 
-  const handlerConfirmCart = () => dispatch(confirmCart(ITEMS, USERID))
 
-  const renderCardItem = (itemData) => (
-      <CartItem 
+
+  const renderFavoritesItem = (itemData) => (
+      <FavoritesItem 
           item={itemData.item}
           onDelete={handlerDeleteItem}
           />
@@ -28,20 +30,17 @@ const CartScreen = () => {
 
       return (
         <View style={styles.container}>
+              <TopTitle title="Lista tus productos favoritos" />
             <View style={styles.list}>
                 <FlatList 
                     data={ITEMS}
                     keyExtractor={(item) => item.id.toString()}
-                    renderItem={renderCardItem}
+                    renderItem={renderFavoritesItem}
                     numColumns={1} />
             </View>
-            <View style={styles.confirm}>
-                <Button title="CONFIRMAR" onPress={handlerConfirmCart} buttonStyle={styles.button}/>
-            </View>
-            <View style={styles.footer}>
-                <Text style={styles.text}>TOTAL</Text>
-                <Text style={styles.text}>$ {TOTAL}</Text>
-            </View>
+           {/* <View style={styles.confirm}>
+                <Button title="CONFIRMAR" onPress={handlerConfirmFavorites} buttonStyle={styles.button}/>
+      </View>*/}
         </View>
     )
 }
@@ -73,4 +72,4 @@ const styles = StyleSheet.create({
   },
   
 })
-export default connect()(CartScreen)
+export default connect()(FavoritesScreen)

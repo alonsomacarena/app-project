@@ -1,6 +1,6 @@
 import COLORS from '../../constants/Colors'
-import CategoriesScreen from "../../screens/CategoriesScreen";
 import CategoryProductsScreen from '../../screens/CategoryProductsScreen';
+import HomeScreen from "../../screens/HomeScreen";
 import { Platform } from 'react-native'
 import ProductDetailScreen from '../../screens/ProductDetailScreen';
 import React from 'react';
@@ -29,7 +29,7 @@ const ShopNavigator = () => (
   >
     <ShopStack.Screen
       name={ROUTES.HOME}
-      component={CategoriesScreen}
+      component={HomeScreen}
       options={{
         title: 'Home',
         headerStyle: { backgroundColor: COLORS.accent },

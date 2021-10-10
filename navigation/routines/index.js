@@ -1,14 +1,14 @@
 import COLORS from '../../constants/Colors'
 import { Platform } from 'react-native'
-import ProfileScreen from '../../screens/ProfileScreen';
 import React from 'react';
+import RoutineScreen from '../../screens/RoutineScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const ProfileStack = createNativeStackNavigator();
+const RoutineStack = createNativeStackNavigator();
 
-const ProfileNavigator = () => (
-    <ProfileStack.Navigator
-        initialRouteName="Profile"
+const RoutineNavigator = () => (
+    <RoutineStack.Navigator
+        initialRouteName="Routine"
         screenOptions={{
             headerStyle: {
                         backgroundColor: COLORS.accent          
@@ -19,12 +19,12 @@ const ProfileNavigator = () => (
             }
         }}
     >
-        <ProfileStack.Screen 
-            name="Profiles" 
-            component={ProfileScreen}
-            options={{title: 'Perfil'}} 
+        <RoutineStack.Screen 
+            name="Routines" 
+            component={RoutineScreen}
+            options={{title: 'Rutinas'}} 
             
         />
-    </ProfileStack.Navigator>
+    </RoutineStack.Navigator>
 )
-export default ProfileNavigator
+export default RoutineNavigator

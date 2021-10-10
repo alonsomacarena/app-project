@@ -4,21 +4,21 @@ import COLORS  from '../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 
-const CartItem = ({ item, onDelete }) => {
+const FavoritesItem = ({ item, onDelete }) => {
+
+
   return (
     <View style={styles.item}>
-      <View>
+      <View style={styles.container}>
+        <View>
         <Text style={styles.header}>{item.name}</Text>
         <Text style={styles.subheader}>{item.brand}</Text>
-      </View>
-      <View style={styles.detail}>
-        <View>
-          <Text style={styles.text}>Cantidad: {item.quantity}</Text>
-          <Text style={styles.text, styles.textBold}>$ {item.price}</Text>
         </View>
+        <View>
         <TouchableOpacity onPress={() => onDelete(item.id)} style={styles.containerTrash}>
           <Ionicons name="trash" size={24} color={COLORS.text} />
         </TouchableOpacity>
+        </View>
       </View>
     </View>
   )
@@ -30,6 +30,8 @@ const styles = StyleSheet.create({
     padding: 8,
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
+    marginTop: "10%",
+
   },
   header: {
     fontSize: 18,
@@ -57,11 +59,24 @@ const styles = StyleSheet.create({
   },
   containerTrash:{
     backgroundColor: COLORS.accent,
-    padding: "2%",
+    paddingHorizontal: "2%",
+    paddingVertical:"10%",
     alignItems: 'center',
     justifyContent: "center",
     borderRadius: 5,
+  },
+  container:{
+    flex:1,
+    flexDirection: "row",
+    alignItems: "flex-end",
+    justifyContent: "space-around",
+    borderRadius: 6,
+      backgroundColor: COLORS.bg,
+      borderColor: COLORS.text,
+      borderWidth: 1,
+      padding: "5%",
+      marginBottom:"2%",
   }
 });
 
-export default CartItem;
+export default FavoritesItem;

@@ -1,14 +1,14 @@
 import COLORS from '../../constants/Colors'
-import CartScreen from "../../screens/CartScreen";
+import FavoritesScreen from "../../screens/FavoritesScreen"
 import { Platform } from 'react-native'
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const CartStack = createNativeStackNavigator();
+const FavoriteStack = createNativeStackNavigator();
 
-const CartNavigator = () => (
-    <CartStack.Navigator
-        initialRouteName="Cart"
+const FavoriteNavigator = () => (
+    <FavoriteStack.Navigator
+        initialRouteName="FavoritesScreen"
         screenOptions={{
            /* headerStyle: {
                 backgroundColor: Platform.OS === 'android' ? COLORS.bg : '',
@@ -22,11 +22,11 @@ const CartNavigator = () => (
     }   
         }}
     >
-        <CartStack.Screen 
-            name="Cart" 
-            component={CartScreen}
-            options={{title: 'Carrito de Compra'}} 
+        <FavoriteStack.Screen 
+            name="Favorites" 
+            component={FavoritesScreen}
+            options={{title: 'Tus Productos Favoritos'}} 
         />
-    </CartStack.Navigator>
+    </FavoriteStack.Navigator>
 )
-export default CartNavigator
+export default FavoriteNavigator
