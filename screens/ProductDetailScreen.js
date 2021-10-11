@@ -23,7 +23,7 @@ const ProductDetailScreen = ({navigation}) => {
     dispatch(addItem(product));
   }
   const handlerConfirmFavorites = () => {
-    dispatch(confirmFavorites(ITEMS, USERID));
+    dispatch(confirmFavorites(ITEMS, USERID,product));
   }
 
   return (
@@ -38,11 +38,12 @@ const ProductDetailScreen = ({navigation}) => {
       <Text style={styles.description}>{product.description}</Text>
       <Button
         title="Agregar a Favoritos"
-        icon={<Ionicons name="star" size={24} color={COLORS.bg} style={{paddingRight:6}} />}
+        icon={<Ionicons name="star" size={24} color={COLORS.bg} style={{paddingRight:6}}   />}
         buttonStyle={styles.button}
-        onPress={handlerAddItemFavorites} 
         onPress={handlerConfirmFavorites} 
       />
+      
+
         </View>
        
       {/*<FAB

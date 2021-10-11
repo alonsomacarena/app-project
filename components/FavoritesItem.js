@@ -6,14 +6,19 @@ import React from 'react';
 
 const FavoritesItem = ({ item, onDelete }) => {
 
-
+  const name= (list) => list.map(item => item.name)
+  const brand= (list) => list.map(item => item.brand)
+  
   return (
     <View style={styles.item}>
       <View style={styles.container}>
         <View style={{width:"80%"}}>
-        <Text style={styles.header}>{item.name}</Text>
-        <Text style={styles.subheader}>{item.brand}</Text>
+          <View>
+        <Text style={styles.header}>{name(item.items)}</Text>
+        <Text style={styles.subheader}>{brand(item.items)}</Text>
         </View>
+        </View>
+     
         <View>
         <TouchableOpacity onPress={() => onDelete(item.id)} style={styles.containerTrash}>
           <Ionicons name="trash" size={24} color={COLORS.text} />

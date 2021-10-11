@@ -1,27 +1,31 @@
 import { Dimensions, FlatList, Image, SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import { confirmFavorites, removeItem } from '../store/actions/favorites.actions';
+import React,{useEffect} from 'react';
+//import { confirmFavorites, getFavorites, removeItem } from '../store/actions/favorites.actions';
 import { connect, useDispatch, useSelector } from 'react-redux'
+import { deleteOrder, getOrders } from '../store/actions/order.action'
 
 import COLORS from "../constants/Colors"
 import FavoritesItemHome from '../components/FavoritesItemHome';
 import GridItem from '../components/GridItem';
 import { Ionicons } from '@expo/vector-icons';
-import React from 'react';
 import TopTitle from '../components/TopTitle';
 import TopTitleSpecial from "../components/TopTitleSpecial";
 import { selectCategory } from '../store/actions/category.actions';
 
 const HomeScreen = ({navigation}) => {
-  const dispatch = useDispatch();
+ const dispatch = useDispatch();
   const categories = useSelector(state => state.categories.list)
 
   const ITEMS = useSelector(state => state.favorites.items)
   const TOTAL = useSelector(state => state.favorites.total)
-  const USERID = useSelector(state => state.auth.userId)
+const USERID = useSelector(state => state.auth.userId)
+const orders = useSelector(state => state.order.items)
 
-  
-  const handlerDeleteItem = (id) => dispatch(removeItem(id))
+useEffect(() => {
+    dispatch(getOrders(USERID))
+},[])
 
+const onHandlerDeleteItem = (id) => dispatch(deleteOrder(id))
 
   const handleSelectedCategory = (item) => {
     dispatch(selectCategory(item.id));
@@ -38,7 +42,7 @@ const HomeScreen = ({navigation}) => {
   const renderFavoritesItem = (itemData) => (
     <FavoritesItemHome 
         item={itemData.item}
-        onDelete={handlerDeleteItem}
+        onDelete={onHandlerDeleteItem}
         />
     )
 
@@ -71,7 +75,7 @@ showsHorizontalScrollIndicator={false}
   <Text style={styles.textGeneral}>Aquí podrás encontrar tus productos favoritos</Text>
   </View>
      <FlatList
-    data={ITEMS}
+    data={orders}
     keyExtractor={(item) => item.id.toString()}
     renderItem={renderFavoritesItem}
     horizontal

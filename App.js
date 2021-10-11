@@ -1,12 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { persistor, store } from './store';
 
 import COLORS from "./constants/Colors";
 import MainNavigator from "./navigation/MainNavigator";
-import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import React from 'react';
-//import store from './store';
+import store from './store';
 import { useFonts } from 'expo-font';
 
 export default function App() {
@@ -27,9 +25,8 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
       <MainNavigator />
-      </PersistGate>
+
     </Provider>
   );
 }

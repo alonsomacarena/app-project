@@ -46,8 +46,8 @@ const FavoritesReducer = (state = INITIAL_STATE, action) => {
     case CONFIRM_FAVORITES:
       return {
         ...state,
-        items: [],
-        status: action.status,
+        items,
+        status: action.payload,
       };
     default:
       return state;
