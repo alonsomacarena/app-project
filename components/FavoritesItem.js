@@ -10,7 +10,7 @@ const FavoritesItem = ({ item, onDelete }) => {
   return (
     <View style={styles.item}>
       <View style={styles.container}>
-        <View>
+        <View style={{width:"80%"}}>
         <Text style={styles.header}>{item.name}</Text>
         <Text style={styles.subheader}>{item.brand}</Text>
         </View>
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     padding: 8,
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
-    marginTop: "10%",
+    marginTop: "2%",
 
   },
   header: {
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   container:{
     flex:1,
     flexDirection: "row",
-    alignItems: "flex-end",
+    alignItems: "flex-start",
     justifyContent: "space-around",
     borderRadius: 6,
       backgroundColor: COLORS.bg,

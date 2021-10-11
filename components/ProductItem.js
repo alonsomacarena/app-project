@@ -26,7 +26,7 @@ const ProductItem = ({ item, onSelected }) => {
   const styles = StyleSheet.create({
     productItem: {
       padding: 20,
-      marginTop: 10,
+      marginTop: 5,
       marginRight: "5%",
       marginLeft: "5%",
       borderRadius: 6,

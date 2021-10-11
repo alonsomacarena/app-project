@@ -31,6 +31,7 @@ const FavoritesScreen = () => {
       return (
         <View style={styles.container}>
               <TopTitle title="Lista tus productos favoritos" />
+              <Text style={styles.textGeneral}>Aquí podrás guardar tus productos favoritos</Text>
             <View style={styles.list}>
                 <FlatList 
                     data={ITEMS}
@@ -70,6 +71,12 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     fontFamily: 'kaisei-extraBold',
   },
+  textGeneral:{
+    fontSize: 12,
+    fontFamily: "kaisei-Regular",
+    textAlign: "center",
+    marginVertical: 10,
+  }
   
 })
 export default connect()(FavoritesScreen)

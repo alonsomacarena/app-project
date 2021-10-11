@@ -42,7 +42,7 @@ export const PRODUCTS = [
   {
     id: '6',
     category: '2',
-    name: 'Crema Facial Reparadora Noche Isdin Age Reverse ',
+    name: 'Crema Facial Reparadora Noche Age Reverse ',
     description: 'formulada con Melatonina que estimula las defensas antioxidantes para combatir las agresiones recibidas durante el día. Contiene Carnosina, que retrasa el proceso de formación de los productos finales de la glicación avanzada (A.G.E.)',
     brand:"Isdin",
     price: 6500,
@@ -51,7 +51,7 @@ export const PRODUCTS = [
     id: '7',
     category: '2',
     name: 'Crema Facial Liftactiv Noche',
-    description: 'atamiento anti-arrugas y firmeza global de efecto prolongado. Tu piel estará integralmente transformada desde el 4to día, viéndose visiblemente más lisa, luminosa y retensada.',
+    description: 'tratamiento anti-arrugas y firmeza global de efecto prolongado. Tu piel estará integralmente transformada desde el 4to día, viéndose visiblemente más lisa, luminosa y retensada.',
     brand:"Vichy",
     price: 7000,
   },
@@ -66,7 +66,7 @@ export const PRODUCTS = [
   {
     id: '9',
     category: '3',
-    name: 'Crema Hidratante Crema Antiage Hidratante Bagóvit Facial Pro Estructura Díao',
+    name: 'Crema Antiage Hidratante Pro Estructura Díao',
     description: 'brinda profunda hidratación a la piel restableciendo la elasticidad y protegiéndola de las agresiones diarias del medio ambiente. Apta para todo tipo de pieles.',
     brand:"Bagóvit",
     price: 1700,
@@ -74,7 +74,7 @@ export const PRODUCTS = [
   {
     id: '10',
     category: '3',
-    name: 'Crema Facial Cicatricure Gold Lift Noche ',
+    name: 'Crema Facial Gold Lift Noche ',
     description: 'combina el poder de los peptidos con oro, calcio y silicio reduciendo la profundidad de las arrugas gravitacionales y redefiniendo el contorno facial. Reduce arrugas gravitacionales en solo 6 semanas. Reafirma el contorno facial, mejorando la hidratación y la apariencia de la piel mientras dormís.',
     brand:"Cicatricure",
     price: 1500,
@@ -82,7 +82,7 @@ export const PRODUCTS = [
   {
     id: '11',
     category: '3',
-    name: 'Crema antiage para arrugas profundas Redermic Hyalu',
+    name: 'Crema antiage Redermic Hyalu',
     description: 'Redermic es altamente concentrado en Vitamina C y ayuda a brindar uniformidad al tono y a ayudar a estimular la producción de colágeno para el aspecto de las arrugas más profundas y a la vez, rellenar el colchón dermico.',
     brand:"La Roche-Posay",
     price: 7000,
@@ -90,7 +90,7 @@ export const PRODUCTS = [
   {
     id: '12',
     category: '3',
-    name: 'Crema Facial Vichy Neovadiol Complexe Substitutif',
+    name: 'Crema Facial Neovadiol Complexe Substitutif',
     description: 'Cuidado reactivador fundamental para pieles maduras. Impregna tu piel de juventud y confort para recuperar la densidad, remodelar el volumen y restaurar la luminosidad. Para las mujeres que desean combatir los efectos de la menopausia en la piel: pérdida de densidad, volumen, frescor y luminosidad.',
     brand:"Vichy",
     price: 5500,
@@ -98,7 +98,7 @@ export const PRODUCTS = [
   {
     id: '13',
     category: '4',
-    name: 'Gel Limpiador Facial ACF By Dadatina Doble Limpieza',
+    name: 'Gel Limpiador Facial Doble Limpieza',
     description: 'Completa la limpieza y calma la piel, dejando el rostro listo para continuar la rutina.',
     brand:"ACF",
     price: 1300,
@@ -106,7 +106,7 @@ export const PRODUCTS = [
   {
     id: '14',
     category: '4',
-    name: 'Gel Limpiador Facial Garnier Skin Active Pure Active 3 en 1',
+    name: 'Gel Limpiador Facial Pure Active 3 en 1',
     description: 'Se puede utilizar como limpiador, como exfoliante y como mascarilla. Su efecto es duradero. Gracias a su fórmula con zinc, piedra pomes y arcilla blanca, purifíca y exfólia la piel, a la vez que, le brinda un tono uniforme.',
     brand:"Garnier",
     price: 850,
@@ -146,7 +146,7 @@ export const PRODUCTS = [
   {
     id: '19',
     category: '4',
-    name: 'Agua Micelar Purificante Effaclar para pieles sensibles y grasosas',
+    name: 'Agua Micelar Purificante Effaclar',
     description: 'Ultra eficiente: limpia sin irritar la piel, desmaquilla desde el primer algodón. Ultra purificante: ayuda a regular la producción de sebo. Ultra segura: sin parabenos, ni colorantes, ni alcohol, ni jabón, ni sulfato. Hipoalargénica y testeada bajo control dermatológico, no comedogénica.',
     brand:"La Roche-Posay",
     price: 4000,
@@ -162,7 +162,7 @@ export const PRODUCTS = [
   {
     id: '21',
     category: '5',
-    name: 'Serum Facial Vichy Liftactivh Supreme H.A Epidermic Filler',
+    name: 'Serum Facial Liftactivh Supreme H.A Epidermic Filler',
     description: 'Innovador serum anti-edad para rostro y contorno de ojos que rellena, corrige líneas finas y arrugas profundas y devuelve la firmeza de tu piel. Con el paso del tiempo, la piel pierde más ácido hialurónico de lo que crea. Este fenómeno es acelerado por factores externos e internos, como la contaminación, los rayos UV o el estrés y provoca la aparición de líneas de expresión, arrugas y pérdida de firmeza. Liftactiv HA Filler es el primer serum anti-edad que recarga 100% de la pérdida epidérmica diaria de ácido hialurónico.',
     brand:"Vichy",
     price: 5600,
@@ -170,7 +170,7 @@ export const PRODUCTS = [
   {
     id: '22',
     category: '5',
-    name: 'Serum Reparador Acf By Dadatina Restauración Vol 2',
+    name: 'Serum Reparador Restauración Vol 2',
     description: 'Su fórmula combina ácido hialurónico de diversos pesos moleculares con un polímero cruzado para hidratar múltiples niveles de la piel. La vitamina B5 potencia la hidratación y restaura la barrera cutánea dejando una apariencia suave y elástica.',
     brand:"ACF",
     price: 2100,
@@ -186,7 +186,7 @@ export const PRODUCTS = [
   {
     id: '24',
     category: '6',
-    name: 'Crema Contorno de Ojos Antioxidante Avene Alisadora',
+    name: 'Crema Contorno de Ojos Antioxidante Alisadora',
     description: 'Cuidado anti-edad para la zona más delicada del rostro. Atenúa y previene la aparición de arrugas en el contorno de los ojos. Calma y reaviva la mirada cansada. Para todo tipo de pieles, ideal para tratar las primeras arrugas.',
     brand:"Avene",
     price: 3500,
@@ -194,7 +194,7 @@ export const PRODUCTS = [
   {
     id: '25',
     category: '6',
-    name: 'Crema Contorno de ojos Eucerin Volume Filler',
+    name: 'Crema Contorno de ojos Volume Filler',
     description: 'Crema voluminizadora para todo tipo de piel. Contiene FPS 15 con un sistema de filtros UVA para proteger el área delicada de los ojos. Oftalmológicamente probada. Adecuada para usar con lentes de contactos.',
     brand:"Eucerin",
     price: 4000,
@@ -218,7 +218,7 @@ export const PRODUCTS = [
   {
     id: '28',
     category: '6',
-    name: 'Crema Facial Dermaglós Contorno de Ojos Dermaglós Ultra Age +30',
+    name: 'Crema Facial Contorno de Ojos Ultra Age +30',
     description: 'Especialmente diseña para iluminar y minimizar las líneas de expresión brindando una alta hidratación a la piel. Estimula la formación de colágeno y previene el envejecimiento prematuro. Ácido hialurónico y colágeno hidrolizado que estimula la formación de colágeno y previene el envejecimiento prematuro de la piel.',
     brand:"Demaglós",
     price: 1600,

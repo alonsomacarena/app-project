@@ -1,5 +1,5 @@
 import { Button, FAB } from 'react-native-elements';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { connect, useDispatch, useSelector } from 'react-redux'
 
 import COLORS from "../constants/Colors";
@@ -27,7 +27,7 @@ const ProductDetailScreen = ({navigation}) => {
   }
 
   return (
-    <View style={styles.screen}>
+    <ScrollView style={styles.screen} showsVerticalScrollIndicator="false">
     <View style={styles.container}>
       <View style={styles.titleContainer}>
     <TopTitle title="Producto Seleccionado" />
@@ -38,9 +38,10 @@ const ProductDetailScreen = ({navigation}) => {
       <Text style={styles.description}>{product.description}</Text>
       <Button
         title="Agregar a Favoritos"
-        icon={<Ionicons name="star" size={24} color={COLORS.bg} style={{paddingRight:6}}  onPress={handlerConfirmFavorites}  />}
+        icon={<Ionicons name="star" size={24} color={COLORS.bg} style={{paddingRight:6}} />}
         buttonStyle={styles.button}
         onPress={handlerAddItemFavorites} 
+        onPress={handlerConfirmFavorites} 
       />
         </View>
        
@@ -52,14 +53,13 @@ const ProductDetailScreen = ({navigation}) => {
         onPress={() => navigation.navigate('CartScreen')}
       />*/}
     </View>
-</View>
+</ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    height: Dimensions.get("window").height,
 },
   container: {
    
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   },
   detailContainer: {
     padding: 20,
-    marginTop: "10%",
+    marginTop: "2%",
     marginBottom: "6%",
     marginLeft: "5%",
     marginRight: "5%",

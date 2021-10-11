@@ -4,8 +4,6 @@ export const ADD_ITEM = 'ADD_ITEM';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
 export const CONFIRM_FAVORITES = 'CONFIRM_FAVORITES';
 
-
-
 export const addItem = (item) => ({
   type: ADD_ITEM,
   item,
@@ -19,10 +17,10 @@ export const removeItem = (itemID) => ({
 export const confirmFavorites = (payload, userId) => {
   return async dispatch => {
     try {
-      /*dispatch({
+      dispatch({
         type: CONFIRM_FAVORITES,
         status: 'loading',
-      });*/
+      });
 
       const response = await fetch(`${URL_API}/favorites.json`, {
         method: 'POST',
@@ -43,7 +41,6 @@ export const confirmFavorites = (payload, userId) => {
       dispatch({
         type: CONFIRM_FAVORITES,
         status: 'success',
-        
       });
     } catch (error) {
       console.log(error.message);

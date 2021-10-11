@@ -1,9 +1,11 @@
 import { URL_AUTH_API, URL_LOGIN_API } from '../../constants/database';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 export const SIGNUP = 'SIGNUP';
 export const LOGIN = 'LOGIN';
 
-export const signup = (email, password, user) => {
+export const signup = (email, password) => {
   return async dispatch => {
     const response = await fetch(URL_AUTH_API, {
       method: 'POST',
@@ -11,7 +13,6 @@ export const signup = (email, password, user) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        user,
         email,
         password,
         returnSecureToken: true,
@@ -30,6 +31,9 @@ export const signup = (email, password, user) => {
 
     const data = await response.json();
 
+    await AsyncStorage.setItem("@token", data.idToken);
+    await AsyncStorage.setItem("userId", data.localId)
+
     dispatch({
       type: SIGNUP,
       token: data.idToken,
@@ -38,7 +42,7 @@ export const signup = (email, password, user) => {
   }
 }
 
-export const login = (email, password, user) => {
+export const login = (email, password) => {
   return async dispatch => {
     const response = await fetch(URL_LOGIN_API, {
       method: 'POST',
@@ -46,7 +50,6 @@ export const login = (email, password, user) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        user,
         email,
         password,
         returnSecureToken: true,

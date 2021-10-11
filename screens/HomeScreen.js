@@ -1,7 +1,9 @@
-import { Dimensions, FlatList, StyleSheet, View } from 'react-native'
+import { Dimensions, FlatList, Image, SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { confirmFavorites, removeItem } from '../store/actions/favorites.actions';
 import { connect, useDispatch, useSelector } from 'react-redux'
 
 import COLORS from "../constants/Colors"
+import FavoritesItemHome from '../components/FavoritesItemHome';
 import GridItem from '../components/GridItem';
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
@@ -12,6 +14,14 @@ import { selectCategory } from '../store/actions/category.actions';
 const HomeScreen = ({navigation}) => {
   const dispatch = useDispatch();
   const categories = useSelector(state => state.categories.list)
+
+  const ITEMS = useSelector(state => state.favorites.items)
+  const TOTAL = useSelector(state => state.favorites.total)
+  const USERID = useSelector(state => state.auth.userId)
+
+  
+  const handlerDeleteItem = (id) => dispatch(removeItem(id))
+
 
   const handleSelectedCategory = (item) => {
     dispatch(selectCategory(item.id));
@@ -24,14 +34,24 @@ const HomeScreen = ({navigation}) => {
     <GridItem item={item} onSelected={handleSelectedCategory} />
   );
 
+
+  const renderFavoritesItem = (itemData) => (
+    <FavoritesItemHome 
+        item={itemData.item}
+        onDelete={handlerDeleteItem}
+        />
+    )
+
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View>
       <TopTitleSpecial title="Hola," />
       </View>
-      <View>
+      
+      <View >
             <TopTitle title="Elige los productos para tu rutina" />
-      </View>      
+      </View> 
+      <View style={styles.screen}>  
     <FlatList
       data={categories}
       keyExtractor={(item) => item.id.toString()}
@@ -41,46 +61,71 @@ const HomeScreen = ({navigation}) => {
 contentContainerStyle={styles.list}
 showsHorizontalScrollIndicator={false}
     />
-    <View style={styles.containerFavorites}>
-     <View style={styles.containerFavoritesTitle}>
-      <TopTitle title="Tus productos Favoritos" />  
-      <Ionicons name="star" size={24} color={COLORS.text}  />      
-     </View>
-     
-     </View>
 
-    </View>
+     <View style={styles.titleProducts}>
+       <Text style={styles.topTitle}>Tus Productos Favoritos
+       <Ionicons name="star" size={24} color={COLORS.text}  />
+       </Text>
+      </View>  
+  <View>
+  <Text style={styles.textGeneral}>Aquí podrás encontrar tus productos favoritos</Text>
+  </View>
+     <FlatList
+    data={ITEMS}
+    keyExtractor={(item) => item.id.toString()}
+    renderItem={renderFavoritesItem}
+    horizontal
+contentContainerStyle={styles.list}
+showsHorizontalScrollIndicator={false}
+    />
+</View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
     container:{
       flex: 1,
-      flexDirection: "column",
-      height: Dimensions.get("window").height,
+      
   },
+  screen:{
+    flex: 3, 
+    justifyContent: "center" 
+  },
+
   list:{
-marginRight: 100,
 marginLeft:"2%",
 marginTop: "5%",
 marginBottom:"20%",
 
   },
-  containerFavoritesTitle:{
-    flex: 1,
-    flexDirection: 'row',
-    width: Dimensions.get("window").width/1.5,
-    alignItems: "flex-start",
-    justifyContent: "flex-start",
-    marginLeft:"3%",
+  titleProducts:{
+    alignSelf:"flex-start",
+    marginLeft:"5%",
   },
-  containerFavorites:{
-    marginTop: "10%",
-    width: "100%",
-    height: "42%",
-
+  textGeneral:{
+    fontSize: 13,
+    fontFamily: "kaisei-Regular",
+    textAlign: "left",
+    marginLeft: "5%",
+    marginTop: "3%",
   },
+  topTitle:{
+    fontSize: 20,
+    color: COLORS.text,
+    textTransform: "capitalize",
+    fontFamily:"kaisei-extraBold",
+},
 
+
+text: {
+  color: "black",
+  fontSize: 42,
+  lineHeight: 84,
+  fontWeight: "bold",
+  textAlign: "center",
+  backgroundColor: "#000000c0"
+}
 })
 
 
