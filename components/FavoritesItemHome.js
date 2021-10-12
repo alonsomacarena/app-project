@@ -1,18 +1,17 @@
-/*import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import COLORS  from '../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 
 const FavoritesItemHome = ({ item, onDelete }) => {
-  const name= (list) => list.map(item => item.name)
-  const brand= (list) => list.map(item => item.brand)
+  
 
   return (
     <View style={styles.gridItem}>
         <View style={styles.item}>
-        <Text style={styles.title}>{name(item.items)}</Text>
-        <Text style={styles.subtitle}>{brand(item.items)}</Text>
+        <Text style={styles.title}>{item.name}</Text>
+        <Text style={styles.subtitle}>{item.brand}</Text>
         <View>
         <TouchableOpacity onPress={() => onDelete(item.id)} style={styles.containerTrash}>
           <Ionicons name="trash" size={24} color={COLORS.text} />
@@ -77,68 +76,4 @@ const styles = StyleSheet.create({
       },
 });
 
-export default FavoritesItemHome;*/
-
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-
-import COLORS from '../constants/Colors'
-import { Ionicons } from '@expo/vector-icons';
-import React from 'react'
-
-//const sumTotal= (list) => list.map(item => item.quantity*item.price).reduce((a,b) => a + b, 0)
-
-const OrderItem = ({item, onDelete}) => {
-    return (
-        <View style={styles.order}>
-           
-            <View style={styles.actions}>
-                <View>
-                    <TouchableOpacity onPress={() => onDelete(item.id)} style={styles.containerTrash} >
-                     <Ionicons name="md-trash" size={24} color={COLORS.text} />
-                </TouchableOpacity>
-                </View>
-            </View>
-        </View>
-    )
-}
-
-const styles = StyleSheet.create({
-    order: {
-        flex: 1,
-        flexDirection: 'row',
-        width: '100%',
-        justifyContent:'space-between',
-        height: 60
-    },
-    data: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent:'space-between',
-        alignItems: 'center',
-        height: 60,
-    },
-    actions: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent:'flex-end',
-        alignItems: 'center',
-        height: 60
-    },
-    marginRight: {
-        marginRight: 6
-    },
-    containerTrash:{
-        backgroundColor: COLORS.accent,
-        padding: "4%",
-        alignItems: 'center',
-        justifyContent: "center",
-        borderRadius: 5,
-      },
-    text:{
-        fontFamily: "kaisei-Medium",
-        fontSize: 14,
-    }
-})
-
-
-export default OrderItem
+export default FavoritesItemHome;

@@ -1,8 +1,7 @@
 import { Dimensions, FlatList, Image, SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import React,{useEffect} from 'react';
-//import { confirmFavorites, getFavorites, removeItem } from '../store/actions/favorites.actions';
+import { confirmFavorites, getFavorites, removeItem } from '../store/actions/favorites.actions';
 import { connect, useDispatch, useSelector } from 'react-redux'
-import { deleteOrder, getOrders } from '../store/actions/order.action'
 
 import COLORS from "../constants/Colors"
 import FavoritesItemHome from '../components/FavoritesItemHome';
@@ -19,19 +18,17 @@ const HomeScreen = ({navigation}) => {
   const ITEMS = useSelector(state => state.favorites.items)
   const TOTAL = useSelector(state => state.favorites.total)
 const USERID = useSelector(state => state.auth.userId)
-const orders = useSelector(state => state.order.items)
 
-useEffect(() => {
-    dispatch(getOrders(USERID))
-},[])
-
-const onHandlerDeleteItem = (id) => dispatch(deleteOrder(id))
 
   const handleSelectedCategory = (item) => {
     dispatch(selectCategory(item.id));
     navigation.push('Products', {
       name: item.title,
     });
+  }
+
+  const onHandlerDeleteItem = (item) => {
+    dispatch(removeItem(item.id))
   }
 
   const renderGridItem = ({ item }) => (
@@ -75,7 +72,7 @@ showsHorizontalScrollIndicator={false}
   <Text style={styles.textGeneral}>Aquí podrás encontrar tus productos favoritos</Text>
   </View>
      <FlatList
-    data={orders}
+    data={ITEMS}
     keyExtractor={(item) => item.id.toString()}
     renderItem={renderFavoritesItem}
     horizontal
@@ -120,16 +117,6 @@ marginBottom:"20%",
     textTransform: "capitalize",
     fontFamily:"kaisei-extraBold",
 },
-
-
-text: {
-  color: "black",
-  fontSize: 42,
-  lineHeight: 84,
-  fontWeight: "bold",
-  textAlign: "center",
-  backgroundColor: "#000000c0"
-}
 })
 
 

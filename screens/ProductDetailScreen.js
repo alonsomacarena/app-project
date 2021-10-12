@@ -38,9 +38,9 @@ const ProductDetailScreen = ({navigation}) => {
       <Text style={styles.description}>{product.description}</Text>
       <Button
         title="Agregar a Favoritos"
-        icon={<Ionicons name="star" size={24} color={COLORS.bg} style={{paddingRight:6}}   />}
+        icon={<Ionicons name="star" size={24} color={COLORS.bg} style={{paddingRight:6}} onPress={handlerConfirmFavorites}   />}
         buttonStyle={styles.button}
-        onPress={handlerConfirmFavorites} 
+        onPress={handlerAddItemFavorites}
       />
       
 

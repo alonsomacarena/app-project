@@ -31,8 +31,8 @@ export const signup = (email, password) => {
 
     const data = await response.json();
 
-    await AsyncStorage.setItem("@token", data.idToken);
-    await AsyncStorage.setItem("userId", data.localId)
+    await AsyncStorage.setItem('@token', data.idToken);
+    await AsyncStorage.setItem('@userId', data.localId);
 
     dispatch({
       type: SIGNUP,
@@ -73,5 +73,21 @@ export const login = (email, password) => {
       token: data.idToken,
       userId: data.localId,
     });
+  }
+}
+
+export const initAuthentication = () => {
+  return async dispatch => {
+    
+    const token = await AsyncStorage.getItem('@token')
+    const userId = await AsyncStorage.getItem('@userId');
+
+    if (token !== null && userId !== null) {
+      dispatch({
+        type: SIGNUP,
+        token,
+        userId,
+      });
+    }
   }
 }

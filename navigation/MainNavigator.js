@@ -1,15 +1,22 @@
+import React,{useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import AuthNavigator  from './user'
 import { NavigationContainer } from "@react-navigation/native";
-import React from 'react';
 import ShopNavigator  from './tab'
-import { useSelector } from 'react-redux';
+import { initAuthentication } from '../store/actions/auth.action';
 
 export default () => {
-  const isLoggedIn = useSelector(state => state.auth.token)
+  const dispatch = useDispatch();
+  const userId = useSelector(state => state.auth.userId);
+
+  useEffect(() => {
+    dispatch(initAuthentication());
+  }, []);
   
   return (
     <NavigationContainer>
-   { isLoggedIn ? (
+   { userId ? (
         <ShopNavigator />
         ) : (
           <AuthNavigator />
