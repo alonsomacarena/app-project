@@ -4,10 +4,19 @@ import COLORS from "./constants/Colors";
 import MainNavigator from "./navigation/MainNavigator";
 import { Provider } from 'react-redux';
 import React from 'react';
+import {init} from "./db";
 import store from './store';
 import { useFonts } from 'expo-font';
 
 export default function App() {
+
+//sqlite
+  init()
+  .then(() => console.log("Database initialized"))
+  .catch((err) => {
+    console.log("Database fail connect")
+    console.log(err.message)
+  })
 
   const [loaded] = useFonts({
     "kaisei-Regular": require('./assets/fonts/KaiseiTokumin-Regular.ttf'),
