@@ -11,13 +11,14 @@ import { useFonts } from 'expo-font';
 export default function App() {
 
 //sqlite
-  init()
-  .then(() => console.log("Database initialized"))
-  .catch((err) => {
-    console.log("Database fail connect")
-    console.log(err.message)
-  })
+init()
+.then(() => console.log('Database initialized'))
+.catch(err => {
+  console.log('Database failed to connect');
+  console.log(err.message);
+})
 
+  
   const [loaded] = useFonts({
     "kaisei-Regular": require('./assets/fonts/KaiseiTokumin-Regular.ttf'),
     "kaisei-Medium": require('./assets/fonts/KaiseiTokumin-Medium.ttf'),

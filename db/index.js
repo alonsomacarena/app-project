@@ -1,15 +1,15 @@
-/*import {SQLite} from "expo-sqlite";*/
+import * as SQLite from 'expo-sqlite'
 
-import * as SQLite from 'expo-sqlite';
-
-const db = SQLite.openDatabase("routines.db");
+const db = SQLite.openDatabase('address.db')
 
 export const init = () => {
-    const promise = new Promise ((resolve, reject) => {
+    const promise = new Promise((resolve, reject) => {
         db.transaction((tx) => {
-            tx.executeSql(`CREATE TABLE IF NOT EXISTS routines (id INTEGER PRIMARY KEY NOT NULL, title TEXT NOT NULL , turno TEXT NOT NULL, horario NUMBER NOT NULL, step1 TEXT NOT NULL, step2 TEXT NOT NULL, step3 TEXT NOT NULL, step4 TEXT NOT NULL, otros TEXT NOT NULL, )`,
+            
+            tx.executeSql(`
+            CREATE TABLE IF NOT EXISTS address (id INTEGER PRIMARY KEY NOT NULL, title TEXT NOT NULL);`, 
             [],
-            () => { resolve()},
+            () => { resolve() },
             (_, err) => { reject(err) })
         })
     })
@@ -17,40 +17,35 @@ export const init = () => {
     return promise
 }
 
-export const insertRoutine = (
+export const insertAddress =  (
     title,
-   turno,
-   horario,
-   step1,
-   step2,
-   step3,
-   step4,
-   otros
+
 ) => {
-    const promise = new Promise ((resolve, reject) => {
+    const promise = new Promise((resolve, reject) => {
         db.transaction((tx) => {
             tx.executeSql(
-                `INSERT INTO routines (title, turno, horario, step1, step2, step3, step4, otros) VALUESN (?, ?, ?, ?, ?, ?, ?, ?);`,
-                [title, turno, horario, step1, step2, step3, step4, otros],
-                (_, result) => resolve(result),
+                'INSERT INTO address (title) VALUES (?);',
+                [title],
+                (_, result) => resolve(result) ,
                 (_, err) => reject(err)
-                )
+            )
         })
     })
 
     return promise
 }
 
-export const fetchRoutines = () => {
+export const fetchAddress = () => {
     const promise = new Promise((resolve, reject) => {
         db.transaction((tx) => {
-          tx.executeSql(
-            'SELECT * FROM routines',
-            [],
-            (_, result) => resolve(result),
-            (_, error) => reject(error),
-          )
+            tx.executeSql(
+                'SELECT * FROM address;',
+                [],
+                (_, result) => resolve(result) ,
+                (_, err) => reject(err)
+            )
         })
-      })
-      return promise
-    }
+    })
+
+    return promise
+}

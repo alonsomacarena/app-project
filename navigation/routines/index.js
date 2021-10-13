@@ -1,8 +1,8 @@
 import COLORS from '../../constants/Colors'
-import NewRoutineScreen from '../../screens/NewRoutineScreen';
+import NewPlaceScreen from '../../screens/NewPlaceScreen';
+import PlaceDetailScreen from '../../screens/PlaceDetailScreen';
 import { Platform } from 'react-native'
 import React from 'react';
-import RoutineDetailScreen from '../../screens/RoutineDetailScreen';
 import RoutineScreen from '../../screens/RoutineScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -27,16 +27,15 @@ const RoutineNavigator = () => (
             options={{title: 'Rutinas'}} 
             
         />
-
-        <RoutineStack.Screen 
+        <RoutineStack.Screen
             name="Detalle"
-            component={RoutineDetailScreen}
-            options={{title: 'Detalle rutina'}} 
+            component={PlaceDetailScreen}
+            options={{title: 'Detalle Rutina'}} 
         />
-        <RoutineStack.Screen 
+        <RoutineStack.Screen
             name="Nuevo"
-            component={NewRoutineScreen}
-            options={{title: 'Nueva Rutina'}} 
+            component={NewPlaceScreen}
+            options={{title: 'Nueva direccion'}} 
         />
     </RoutineStack.Navigator>
 )
