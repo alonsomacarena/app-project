@@ -4,15 +4,16 @@ import COLORS  from '../constants/Colors'
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-const PlaceDetailScreen = ({route}) => {
-    const { placeID } = route.params
-    const place = useSelector(state => state.places.places.find(place => place.id === placeID))
+const DiaryDetailScreen = ({route}) => {
+   /* const { entryID } = route.params
+    const entry = useSelector(state => state.entry.entry.find(entries => entries.id === entryID))*/
     
     return (
         <ScrollView contentContainerStyle={{alignItems: 'center'}}>
             <View style={styles.location}>
-                <View style={styles.addressContainer}><Text style={styles.address}>{place.title}</Text>
-                </View>
+                {/*<View style={styles.addressContainer}><Text style={styles.address}>{entry.title}</Text>
+                </View>*/}
+                <Text>Detalles </Text>
             </View>
         </ScrollView>
     )
@@ -56,4 +57,4 @@ const styles = StyleSheet.create({
   });
   
 
-export default PlaceDetailScreen
+export default DiaryDetailScreen;

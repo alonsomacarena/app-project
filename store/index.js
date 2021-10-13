@@ -3,8 +3,8 @@ import { applyMiddleware, combineReducers, createStore } from "redux";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import AuthReducer from './reducers/auth.reducer';
 import CategoryReducer from "./reducers/category.reducer";
+import DiaryReducer from "./reducers/diary.reducer";
 import FavoritesReducer from "./reducers/favorites.reducer";
-import PlacesReducer from "./reducers/places.reducer";
 import ProductsReducer from "./reducers/product.reducer";
 import thunk from 'redux-thunk';
 
@@ -19,7 +19,7 @@ const RootReducer = combineReducers({
   categories: CategoryReducer,
   products: ProductsReducer,
   favorites: FavoritesReducer,
-  places: PlacesReducer,
+  entrys: DiaryReducer,
   auth: AuthReducer,
   
 });
