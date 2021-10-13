@@ -11,7 +11,8 @@ const PlaceDetailScreen = ({route}) => {
     return (
         <ScrollView contentContainerStyle={{alignItems: 'center'}}>
             <View style={styles.location}>
-                <View style={styles.addressContainer}><Text style={styles.address}>{place.title}</Text></View>
+                <View style={styles.addressContainer}><Text style={styles.address}>{place.title}</Text>
+                </View>
             </View>
         </ScrollView>
     )

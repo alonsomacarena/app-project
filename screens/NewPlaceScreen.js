@@ -6,7 +6,7 @@ import React, { useCallback, useState } from 'react'
 import COLORS  from '../constants/Colors'
 import { useDispatch } from 'react-redux'
 
-const NewPlaceScreen = ({navigation, route}) => {
+const NewPlaceScreen = ({navigation}) => {
     const dispatch = useDispatch()
     const [text, onChangeText] = useState('')
 

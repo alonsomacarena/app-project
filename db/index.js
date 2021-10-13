@@ -7,7 +7,8 @@ export const init = () => {
         db.transaction((tx) => {
             
             tx.executeSql(`
-            CREATE TABLE IF NOT EXISTS address (id INTEGER PRIMARY KEY NOT NULL, title TEXT NOT NULL);`, 
+            CREATE TABLE IF NOT EXISTS address (id INTEGER PRIMARY KEY NOT NULL , title TEXT NOT NULL );`, 
+    
             [],
             () => { resolve() },
             (_, err) => { reject(err) })
