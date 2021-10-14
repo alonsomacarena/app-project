@@ -29,7 +29,7 @@ const DiaryNavigator = () => (
         <DiaryStack.Screen
             name="DetalleDiario"
             component={DiaryDetailScreen}
-            options={{title: 'Detalle Photo Entry'}} 
+            options={{title: 'Detalle Registro'}} 
         />
         <DiaryStack.Screen
             name="Nuevo"

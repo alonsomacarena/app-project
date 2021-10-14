@@ -20,12 +20,16 @@ const DiaryItem = ({ title, image, comment, onSelect }) => {
 
 const styles = StyleSheet.create({
     placeItem: {
-        borderBottomColor: COLORS.primary,
-        borderBottomWidth: 1,
+        borderColor: COLORS.primary,
+        borderWidth: 1,
         paddingVertical: 16,
         paddingHorizontal: 30,
         flexDirection: 'row',
         alignItems: 'center',
+        borderRadius: 5,
+        backgroundColor: COLORS.primary,
+        marginVertical: "3%",
+        marginHorizontal: "2%"
       },
       image: {
         width: 70,
@@ -43,10 +47,14 @@ const styles = StyleSheet.create({
         color: COLORS.text,
         fontSize: 18,
         marginBottom: 6,
+        fontFamily: "kaisei-Medium"
+
       },
       address: {
-        color: '#777',
-        fontSize: 16,
+        color: COLORS.bg,
+        fontSize: 14,
+        fontFamily: "kaisei-Regular"
+
       }
     });
 

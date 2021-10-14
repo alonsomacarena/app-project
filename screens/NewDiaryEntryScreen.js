@@ -1,5 +1,5 @@
+import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TextInput, TouchableWithoutFeedback, View, } from 'react-native'
 import React, { useState } from 'react'
-import { ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
 
 import { Button } from 'react-native-elements';
 import COLORS  from '../constants/Colors'
@@ -27,6 +27,7 @@ const NewDiaryEntryScreen = ({ navigation }) => {
     }
 
     return (
+        <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}>
         <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.container}>
                 <Text style={styles.label}>Titulo</Text>
@@ -38,12 +39,13 @@ const NewDiaryEntryScreen = ({ navigation }) => {
 
                 <ImageSelector onImage={handlePickImage} />
                 <Text style={styles.label}>Comentarios </Text>
+                <TouchableWithoutFeedback>
                 <TextInput
                     style={styles.input2}
                     value={comment}
                     onChangeText={handleCommentChange}
                 />
-
+</TouchableWithoutFeedback>
                 <Button
                     title="GUARDAR"
                     onPress={handleSave}
@@ -51,6 +53,7 @@ const NewDiaryEntryScreen = ({ navigation }) => {
                 />
             </View>
         </ScrollView>
+        </KeyboardAvoidingView>
     )
 }
 

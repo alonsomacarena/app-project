@@ -1,60 +1,52 @@
-import { Image, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { FlatList, StyleSheet, Text, View } from 'react-native'
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import React, { useEffect, useLayoutEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 
-import COLORS  from '../constants/Colors'
-import React from 'react'
-import { useSelector } from 'react-redux'
+import DiaryDetailItem from '../components/DiaryDetailItem';
+import HeaderButton from '../components/HeaderButton';
+import { loadDiary } from '../store/actions/diary.actions';
 
-const DiaryDetailScreen = ({route}) => {
-   /* const { entryID } = route.params
-    const entry = useSelector(state => state.entry.entry.find(entries => entries.id === entryID))*/
+const DiaryDetailScreen = ({ navigation }) => {
+    const dispatch = useDispatch();
+    const entrys = useSelector(state => state.entrys.entrys);
     
+
+    useEffect(() => {
+        dispatch(loadDiary());
+    }, []);
+
+    const renderItem = (data) => (
+        <DiaryDetailItem
+            title={data.item.title}
+            image={data.item.image}
+            comment={data.item.comment}
+        />
+    )
+
     return (
-        <ScrollView contentContainerStyle={{alignItems: 'center'}}>
-            <View style={styles.location}>
-                {/*<View style={styles.addressContainer}><Text style={styles.address}>{entry.title}</Text>
-                </View>*/}
-                <Text>Detalles </Text>
-            </View>
-        </ScrollView>
+        <View style={styles.container}>
+        <FlatList
+            data={entrys}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={renderItem}
+        />
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
-    image: {
-      height: '35%',
-      minHeight: 300,
-      width: '100%',
-      backgroundColor: '#ccc'
+    container: {
+        flex: 1,
+        padding: 12
     },
-    location: {
-      marginVertical: 20,
-      width: '90%',
-      maxWidth: 350,
-      justifyContent: 'center',
-      alignItems: 'center',
-      shadowColor: 'black',
-      shadowOpacity: 0.26,
-      shadowOffset: { width: 0, height: 2 },
-      shadowRadius: 8,
-      elevation: 5,
-      backgroundColor: COLORS.title,
-      borderRadius: 10
-    },
-    addressContainer: {
-      padding: 20
-    },
-    address: {
-      color: COLORS.text,
-      textAlign: 'center'
-    },
-    map: {
-      width: '100%',
-      maxWidth: 350,
-      height: 300,
-      borderBottomLeftRadius: 10,
-      borderBottomRightRadius: 10
-    }
-  });
-  
+    textGeneral:{
+        fontSize: 12,
+        fontFamily: "kaisei-Regular",
+        textAlign: "center",
+        marginVertical: 10,
+      }
+})
+
 
 export default DiaryDetailScreen;
