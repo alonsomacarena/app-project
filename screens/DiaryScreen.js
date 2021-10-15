@@ -46,7 +46,7 @@ const DiaryScreen = ({ navigation }) => {
 
         <FlatList
             data={entrys}
-            keyExtractor={(item) => item.id.toString()}
+            keyExtractor={(item) => item.id}
             renderItem={renderItem}
         />
         </View>
