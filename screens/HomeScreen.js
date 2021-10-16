@@ -1,4 +1,4 @@
-import { Dimensions, FlatList, Image, SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, FlatList, Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React,{useEffect} from 'react';
 import { confirmFavorites, getFavorites, removeItem } from '../store/actions/favorites.actions';
 import { connect, useDispatch, useSelector } from 'react-redux'
@@ -44,13 +44,13 @@ const USERID = useSelector(state => state.auth.userId)
     )
 
   return (
-    <SafeAreaView style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View>
       <TopTitleSpecial title="Hola," />
       </View>
       
       <View >
-            <TopTitle title="Elige los productos para tu rutina" />
+            <TopTitle title="Encuentra los mejores productos :" />
       </View> 
       <View style={styles.screen}>  
     <FlatList
@@ -69,7 +69,7 @@ showsHorizontalScrollIndicator={false}
        </Text>
       </View>  
   <View>
-  <Text style={styles.textGeneral}>Aquí podrás encontrar tus productos favoritos</Text>
+  <Text style={styles.textGeneral}>Aquí podrás encontrar tus productos favoritos. También lo harás en Favoritos...</Text>
   </View>
      <FlatList
     data={ITEMS}
@@ -79,8 +79,29 @@ showsHorizontalScrollIndicator={false}
 contentContainerStyle={styles.list}
 showsHorizontalScrollIndicator={false}
     />
+
+{/*<View style={styles.titleProducts1}>
+       <Text style={styles.topTitle}>Tus Rutinas 
+       <Ionicons name="time" size={20} color={COLORS.text}  />
+       </Text>
+      </View>  
+      <View>
+  <Text style={styles.textGeneral1}>No te olvides de crear tus rutinas de día y noche! Podes acceder a ellas al hacer click en Rutinas </Text>
+  </View>
+
+  <View style={styles.titleProducts1}>
+       <Text style={styles.topTitle}>Tu Registro Fotográfico 
+       <Ionicons name="journal" size={20} color={COLORS.text}  />
+       </Text>
+      </View>  
+      <View>
+  <Text style={styles.textGeneral1}>Mantene un registro semanal de tu proceso al subir tus fotos y comentarios en Registro </Text>
+  </View>*/}
+
+  
+
 </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 }
 
@@ -97,7 +118,6 @@ const styles = StyleSheet.create({
   list:{
 marginLeft:"2%",
 marginTop: "5%",
-marginBottom:"20%",
 
   },
   titleProducts:{
@@ -110,12 +130,27 @@ marginBottom:"20%",
     textAlign: "left",
     marginLeft: "5%",
     marginTop: "3%",
+    width: "90%",
   },
   topTitle:{
     fontSize: 20,
     color: COLORS.text,
     textTransform: "capitalize",
     fontFamily:"kaisei-extraBold",
+},
+titleProducts1:{
+  alignSelf:"flex-start",
+  marginLeft:"5%",
+  backgroundColor: "transparent"
+},
+textGeneral1:{
+  fontSize: 13,
+  fontFamily: "kaisei-Regular",
+  textAlign: "left",
+  marginLeft: "5%",
+  marginTop: "3%",
+  width: "90%",
+  marginBottom: "5%"
 },
 })
 

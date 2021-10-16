@@ -29,12 +29,11 @@ const styles = StyleSheet.create({
         borderRadius: 6,
         justifyContent: "flex-start",
         marginTop: "2%",
-        marginBottom:"50%",
         flexDirection: "row",
         flexWrap: "wrap",
         alignItems: "center",
         backgroundColor: "transparent",
-    
+      marginBottom: "15%",
       },
       item: {
         borderRadius: 6,
@@ -46,7 +45,7 @@ const styles = StyleSheet.create({
         paddingBottom: 15,
         paddingRight:8,
         width: Dimensions.get("window").width/2.2,
-        height: Dimensions.get("window").height/4,
+        height: Dimensions.get("window").height/5,
         marginHorizontal: 10,
         backgroundColor: COLORS.title,
         alignItems: "center",
@@ -54,14 +53,14 @@ const styles = StyleSheet.create({
       title: {
         fontFamily: 'kaisei-Bold',
         textAlign: 'center',
-        fontSize: 14,
+        fontSize: 12,
         paddingTop: "10%",
         paddingHorizontal: "2%",
       },
     subtitle: {
         fontFamily: 'kaisei-Medium',
         textAlign: 'center',
-        fontSize: 14,
+        fontSize: 10,
       },
       containerTrash:{
        borderColor: COLORS.text,
