@@ -25,7 +25,7 @@ const FavoriteNavigator = () => (
         <FavoriteStack.Screen 
             name="Favorites" 
             component={FavoritesScreen}
-            options={{title: 'Tus Productos Favoritos'}} 
+            options={{title: 'Favoritos'}} 
         />
     </FavoriteStack.Navigator>
 )
