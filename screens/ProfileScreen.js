@@ -44,7 +44,7 @@ const ProfileScreen = ({ navigation }) => {
                 />
                 <Button
                     title="GUARDAR"
-                    onPress={Alert.alert("En esta screen solo esta programado que pueda acceder a la galeria de fotos")}
+                    onPress={console.log("En esta screen solo esta programado que pueda acceder a la galeria de fotos")}
                     buttonStyle={styles.button}
                 />
             </View>
