@@ -3,7 +3,8 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import COLORS from '../constants/Colors';
 import React from 'react';
 
-const DiaryDetailItem = ({ title, image, comment }) => {
+const DiaryDetailItem = ({ title, image, comment, id }) => {
+
     return (
 
       <View style={styles.container}>

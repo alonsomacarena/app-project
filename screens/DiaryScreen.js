@@ -10,8 +10,8 @@ import { loadDiary } from '../store/actions/diary.actions';
 
 const DiaryScreen = ({ navigation }) => {
     const dispatch = useDispatch();
-    const entrys = useSelector(state => state.entrys.entrys);
-    
+   const entrys = useSelector(state => state.entrys.entrys);
+
     useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => (
