@@ -1,87 +1,51 @@
-import {
-  Button,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
-import React, { useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-import AddItem from './components/AddItem';
-import COLORS from "./constants/Colors"
-import Header from './components/Header';
-import List from "./components/List";
-import Modal from './components/Modal';
-import { StatusBar } from 'expo-status-bar';
+import COLORS from "./constants/Colors";
+import MainNavigator from "./navigation/MainNavigator";
+import { Provider } from 'react-redux';
+import React from 'react';
+import {init} from "./db";
+import store from './store';
+import { useFonts } from 'expo-font';
 
 export default function App() {
-  const [inputText, setInputText] = useState('');
-  const [inputError, setInputError] = useState('');
-  const [itemList, setItemList] = useState([]);
 
-  const [itemSelected, setItemSelected] = useState({});
-  const [modalVisible, setModalVisible] = useState(false);
+//sqlite
+init()
+.then(() => console.log('Database initialized'))
+.catch(err => {
+  console.log('Database failed to connect');
+  console.log(err.message);
+})
 
-  const handleChangeText = (text) => {
-    setInputText(text);
-    setInputError('');
-  };
-
-  const handleAddItem = () => {
-    if (inputText) {
-      setItemList([
-        ...itemList,
-        {
-          id: Math.random().toString(),
-          value: inputText,
-        },
-      ]);
-      setInputText('');
-      setInputError('');
-    } else {
-      setInputError('Required');
-    }
+  
+  const [loaded] = useFonts({
+    "kaisei-Regular": require('./assets/fonts/KaiseiTokumin-Regular.ttf'),
+    "kaisei-Medium": require('./assets/fonts/KaiseiTokumin-Medium.ttf'),
+    "kaisei-Bold": require('./assets/fonts/KaiseiTokumin-Bold.ttf'),
+    "kaisei-extraBold": require('./assets/fonts/KaiseiTokumin-ExtraBold.ttf'),
+  });
+  
+  if (!loaded) {
+    return null;
   }
 
-  const handleConfirmDelete = () => {
-    const id = itemSelected.id;
-    setItemList(itemList.filter(item => item.id !== id));
-    setModalVisible(false);
-    setItemSelected({});
-  }
+  
 
-  const handleModal = id => {
-    setItemSelected(itemList.find(item => item.id === id));
-    setModalVisible(true);
-  }
 
   return (
-    <View style={styles.screen}>
-      <Header title="Rutina de Cuidado Facial" />
-      <AddItem
-        handleChangeText={handleChangeText}
-        handleAddItem={handleAddItem}
-        inputError={inputError}
-        inputText={inputText}
-      />
-      <List
-        itemList={itemList}
-        handleModal={handleModal}
-      />
-      <Modal
-        modalVisible={modalVisible}
-        handleConfirmDelete={handleConfirmDelete}
-        itemSelected={itemSelected}
-      />
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <MainNavigator />
+
+    </Provider>
   );
 }
 
 const styles = StyleSheet.create({
-  screen: {
-    padding: 30,
-    backgroundColor: COLORS.bg,
+  container: {
     flex: 1,
+    backgroundColor: COLORS.bg,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
