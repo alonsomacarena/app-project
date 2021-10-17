@@ -22,9 +22,10 @@ const ProductDetailScreen = ({navigation}) => {
   const handlerAddItemFavorites = () => {
     dispatch(addItem(product));
   }
-  const handlerConfirmFavorites = () => {
+ const handlerConfirmFavorites = () => {
     dispatch(confirmFavorites(ITEMS, USERID,product));
   }
+
 
   return (
     <ScrollView style={styles.screen} showsVerticalScrollIndicator="false">
@@ -40,19 +41,25 @@ const ProductDetailScreen = ({navigation}) => {
         title="Agregar a Favoritos"
         icon={<Ionicons name="star" size={24} color={COLORS.bg} style={{paddingRight:6}}  />}
         buttonStyle={styles.button}
-        onPress={handlerAddItemFavorites}
+        onPress={handlerAddItemFavorites}  
+       
       />
       
 
         </View>
-       
-      <FAB
+        <FAB
         icon={<Ionicons name="star" size={24} color={COLORS.text} />}
         placement="right"
         color={COLORS.title}
         buttonStyle={styles.buttonFab}
+  onPress={() => navigation.navigate('CartConfirmScreen')} /> 
+   
+      
+      {/*<Button
+        title="CONFIRMAR"
+        buttonStyle={styles.buttonConfirm}
         onPress={handlerConfirmFavorites}  
-      />
+      />*/}
     </View>
 </ScrollView>
   );
@@ -76,6 +83,14 @@ const styles = StyleSheet.create({
     borderColor: COLORS.text,
     borderWidth: 1,
     width: "90%",
+    borderRadius: 6,
+    shadowColor: 'black',
+    shadowOpacity: 0.25,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
+    elevation: 3,
+    borderColor: COLORS.text,
+    borderWidth: 1,
   },
   detailContainer: {
     padding: 20,
@@ -125,6 +140,22 @@ button: {
   borderWidth: 1,
   padding: "4%",
   marginTop:"15%",
+},
+buttonConfirm: {
+  backgroundColor: COLORS.title,
+  marginVertical: 20,
+  fontFamily: 'kaisei-extraBold',
+  borderRadius: 6,
+  shadowColor: 'black',
+  shadowOpacity: 0.25,
+  shadowOffset: { width: 0, height: 2 },
+  shadowRadius: 6,
+  elevation: 3,
+  borderColor: COLORS.primary,
+  borderWidth: 1,
+  padding: "4%",
+  width: Dimensions.get("window").width/1.25,
+  fontFamily:"kaisei-extraBold"
 },
 });
 

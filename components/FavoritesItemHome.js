@@ -9,15 +9,15 @@ const FavoritesItemHome = ({ item, onDelete }) => {
 
   return (
     <View style={styles.gridItem}>
-        <View style={styles.item}>
-        <Text style={styles.title}>{item.name}</Text>
-        <Text style={styles.subtitle}>{item.brand}</Text>
+          {item.map((ob) => <View style={styles.item}>
+        <Text style={styles.title}>{ob.name}</Text>
+        <Text style={styles.subtitle}>{ob.brand}</Text>
         <View>
-        <TouchableOpacity onPress={() => onDelete(item.id)} style={styles.containerTrash}>
+        {/*<TouchableOpacity onPress={() => onDelete(item.id)} style={styles.containerTrash}>
           <Ionicons name="trash" size={24} color={COLORS.text} />
-        </TouchableOpacity>
+  </TouchableOpacity>*/}
         </View>
-        </View>
+        </View>)}
     </View>
     
   )

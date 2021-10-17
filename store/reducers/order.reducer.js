@@ -12,7 +12,6 @@ const OrderReducer = (state = initialState, action) => {
                 ...state,
                 items: action.payload
             }
-            
         case REMOVE_ORDER:
             console.log('REMOVE', action)
             const updateItems = [...state.items].filter(item => item.id !== action.order)

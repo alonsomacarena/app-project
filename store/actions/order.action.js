@@ -28,7 +28,6 @@ export const getOrders = (userId) => {
             const result = await response.json()
            // const items = orderByUserID(result, userId)
             const items = orderByUserID(result, userId)
-            console.log("console de items",items)
             dispatch({ type: GET_ORDERS, payload: items})
         } catch (error) {
             console.log("es este el que dice ",error.message)

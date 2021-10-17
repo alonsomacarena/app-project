@@ -40,7 +40,7 @@ const ProfileScreen = ({ navigation }) => {
                     style={styles.input2}
                     value={comment}
                     onChangeText={handleCommentChange}
-                    placeholder="Algo sobre ti.."
+                    placeholder="Algo sobre ti..."
                 />
                 <Button
                     title="GUARDAR"

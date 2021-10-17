@@ -1,5 +1,6 @@
 import COLORS from '../../constants/Colors'
 import FavoritesScreen from "../../screens/FavoritesScreen"
+import OrderScreen from '../../screens/OrderScreen';
 import { Platform } from 'react-native'
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -24,8 +25,8 @@ const FavoriteNavigator = () => (
     >
         <FavoriteStack.Screen 
             name="Favorites" 
-            component={FavoritesScreen}
-            options={{title: 'Tus Productos Favoritos'}} 
+            component={OrderScreen}
+            options={{title: 'Favoritos'}} 
         />
     </FavoriteStack.Navigator>
 )

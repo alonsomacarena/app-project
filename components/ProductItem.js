@@ -42,6 +42,7 @@ const ProductItem = ({ item, onSelected }) => {
     details: {
       fontSize: 18,
       color: COLORS.text,
+      fontFamily: "kaisei-Medium"
     },
   });
   

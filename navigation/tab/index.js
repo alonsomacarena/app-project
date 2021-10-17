@@ -4,6 +4,7 @@ import COLORS from '../../constants/Colors';
 import DiaryScreen from '../diary';
 import FavoritesScreen from '../favorites'
 import { Ionicons } from '@expo/vector-icons';
+import OrderScreen from '../favorites';
 import ProfileScreen from "../profile"
 import React from 'react';
 import RoutineScreen from '../routines';
@@ -61,7 +62,7 @@ const TabsShop = () => (
         />
         <TabsStack.Screen 
             name="FavoritesScreen"
-            component={FavoritesScreen}
+            component={OrderScreen}
             options={{
                 tabBarIcon: ({focused}) => (
                     <View style={styles.item}>

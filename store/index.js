@@ -5,6 +5,7 @@ import AuthReducer from './reducers/auth.reducer';
 import CategoryReducer from "./reducers/category.reducer";
 import DiaryReducer from "./reducers/diary.reducer";
 import FavoritesReducer from "./reducers/favorites.reducer";
+import OrderReducer from "./reducers/order.reducer"
 import ProductsReducer from "./reducers/product.reducer";
 import thunk from 'redux-thunk';
 
@@ -20,7 +21,9 @@ const RootReducer = combineReducers({
   products: ProductsReducer,
   favorites: FavoritesReducer,
   entrys: DiaryReducer,
+  orders: OrderReducer,
   auth: AuthReducer,
+
   
 });
 

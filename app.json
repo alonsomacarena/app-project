@@ -3,6 +3,7 @@
     "name": "skincare",
     "slug": "skincare",
     "version": "1.0.0",
+    "platforms": ["ios", "android"],
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "splash": {
@@ -17,13 +18,23 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier":"com.coderhouse.skyncare",
+      "buildNumber": "1.0.0",
       "supportsTablet": true
     },
     "android": {
+      "package": "com.coderhouse.skincare",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#F1F2EE"
-      }
+        "backgroundColor": "#AEBAC2"
+      },
+      "permissions":[
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "CAMERA_ROLL"
+      ]
     },
     "web": {
       "favicon": "./assets/images/favicon.png"

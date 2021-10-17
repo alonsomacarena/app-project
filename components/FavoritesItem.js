@@ -1,29 +1,28 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { deleteOrder, getOrders } from '../store/actions/order.action'
 
 import COLORS  from '../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 
 const FavoritesItem = ({ item, onDelete }) => {
-
   
   return (
-    <View style={styles.item}>
-      <View style={styles.container}>
-        <View style={{width:"80%"}}>
-          <View>
-        <Text style={styles.header}>{item.name}</Text>
-        <Text style={styles.subheader}>{item.brand}</Text>
-        </View>
-        </View>
-     
-        <View>
-        <TouchableOpacity onPress={() => onDelete(item.id)} style={styles.containerTrash}>
-          <Ionicons name="trash" size={24} color={COLORS.text} />
-        </TouchableOpacity>
-        </View>
-      </View>
-    </View>
+    <View style={styles.item} >
+   {item.map((ob) => <View style={styles.container}>
+           <View style={{width:"80%"}}>
+             <View>
+           <Text style={styles.header}>{ob.name}</Text>
+           <Text style={styles.subheader}>{ob.brand}</Text>
+           </View>
+           </View>
+        
+           <View>
+          
+           </View>
+         </View>)}
+         
+       </View>
   )
 }
 
@@ -79,6 +78,7 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       padding: "5%",
       marginBottom:"2%",
+      marginHorizontal: "3%"
   }
 });
 

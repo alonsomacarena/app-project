@@ -42,7 +42,7 @@ const DiaryScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
           <TopTitle title="Seguimiento de Proceso" />
-        <Text style={styles.textGeneral}>Aquí podrás mantener un seguimiento de tu proceso con fotos semanales... No olvides agregar tus comentarios para mantener un registro más detallado!</Text>
+        <Text style={styles.textGeneral}>Aquí podrás mantener un seguimiento de tu proceso con fotos semanales... No olvides de agregar tus comentarios para mantener un registro más detallado!</Text>
 
         <FlatList
             data={entrys}

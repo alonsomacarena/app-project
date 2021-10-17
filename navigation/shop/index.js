@@ -1,11 +1,11 @@
 import COLORS from '../../constants/Colors'
+import CartConfirmScreen from '../../screens/CartConfirmScreen';
 import CategoryProductsScreen from '../../screens/CategoryProductsScreen';
 import HomeScreen from "../../screens/HomeScreen";
 import { Platform } from 'react-native'
 import ProductDetailScreen from '../../screens/ProductDetailScreen';
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
 // Screens
 
 const ShopStack = createNativeStackNavigator();
@@ -48,6 +48,14 @@ const ShopNavigator = () => (
       component={ProductDetailScreen}
       options={({ route }) => ({
         title: route.params.name,
+        headerStyle: { backgroundColor: COLORS.accent },
+      })}
+    />
+     <ShopStack.Screen
+      name="CartConfirmScreen"
+      component={CartConfirmScreen}
+      options={({ route }) => ({
+        title: "Confirmar Favoritos",
         headerStyle: { backgroundColor: COLORS.accent },
       })}
     />

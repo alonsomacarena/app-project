@@ -2,6 +2,7 @@ import { Dimensions, FlatList, Image, SafeAreaView, ScrollView, StyleSheet, Text
 import React,{useEffect} from 'react';
 import { confirmFavorites, getFavorites, removeItem } from '../store/actions/favorites.actions';
 import { connect, useDispatch, useSelector } from 'react-redux'
+import { deleteOrder, getOrders } from '../store/actions/order.action'
 
 import COLORS from "../constants/Colors"
 import FavoritesItemHome from '../components/FavoritesItemHome';
@@ -14,10 +15,14 @@ import { selectCategory } from '../store/actions/category.actions';
 const HomeScreen = ({navigation}) => {
  const dispatch = useDispatch();
   const categories = useSelector(state => state.categories.list)
-
   const ITEMS = useSelector(state => state.favorites.items)
-  const TOTAL = useSelector(state => state.favorites.total)
+
 const USERID = useSelector(state => state.auth.userId)
+const orders = useSelector(state => state.orders.items)
+
+useEffect(() => {
+    dispatch(getOrders(USERID))
+},[])
 
 
   const handleSelectedCategory = (item) => {
@@ -52,6 +57,9 @@ const USERID = useSelector(state => state.auth.userId)
       <View >
             <TopTitle title="Encuentra los mejores productos :" />
       </View> 
+      <View>
+  <Text style={styles.textGeneral}>Elige tus productos favoritos de cada categoría...</Text>
+  </View>
       <View style={styles.screen}>  
     <FlatList
       data={categories}
@@ -71,14 +79,23 @@ showsHorizontalScrollIndicator={false}
   <View>
   <Text style={styles.textGeneral}>Aquí podrás encontrar tus productos favoritos. También lo harás en Favoritos...</Text>
   </View>
-     <FlatList
-    data={ITEMS}
-    keyExtractor={(item) => item.id.toString()}
-    renderItem={renderFavoritesItem}
-    horizontal
-contentContainerStyle={styles.list}
-showsHorizontalScrollIndicator={false}
-    />
+  <FlatList 
+                data={Object.values(orders)}
+                keyExtractor={(items) => items.id.toString()}
+                renderItem={(data, index) => (
+                    <FavoritesItemHome 
+                    key={index}
+                    item={data.item.items}
+            onDelete={onHandlerDeleteItem}
+            />
+                )
+                
+        
+                }
+                horizontal
+                contentContainerStyle={styles.list}
+                showsHorizontalScrollIndicator={false}
+                 />
 
 {/*<View style={styles.titleProducts1}>
        <Text style={styles.topTitle}>Tus Rutinas 

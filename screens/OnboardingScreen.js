@@ -64,13 +64,13 @@ const OnboardingScreen = ({navigation}) => {
             subtitle: 'Dale a tu piel el cuidado que necesita',
           },
           {
-            backgroundColor: '#E7DE96',
+            backgroundColor: '#C6D8E4',
             image: <Image source={require('../assets/images/onboarding-img2.png')} />,
             title: 'Elige tus favoritos',
             subtitle: 'Arma tus rutinas personalizadas',
           },
           {
-            backgroundColor: '#AEBAC2',
+            backgroundColor: '#E7DE96',
             image: <Image source={require('../assets/images/onboarding-img3.png')} />,
             title: "Transforma tu piel",
             subtitle: 'Haz un seguimiento con tu Diario de Fotos',
