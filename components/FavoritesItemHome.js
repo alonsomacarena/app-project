@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         flexWrap: "wrap",
         alignItems: "center",
         backgroundColor: "transparent",
-      marginBottom: "2%"
+      marginBottom: "15%",
       },
       item: {
         borderRadius: 6,
@@ -53,14 +53,14 @@ const styles = StyleSheet.create({
       title: {
         fontFamily: 'kaisei-Bold',
         textAlign: 'center',
-        fontSize: 14,
+        fontSize: 12,
         paddingTop: "10%",
         paddingHorizontal: "2%",
       },
     subtitle: {
         fontFamily: 'kaisei-Medium',
         textAlign: 'center',
-        fontSize: 12,
+        fontSize: 10,
       },
       containerTrash:{
        borderColor: COLORS.text,

@@ -1,14 +1,14 @@
 import COLORS from '../../constants/Colors'
-import FavoritesScreen from "../../screens/FavoritesScreen"
+import OrderScreen from '../../screens/OrderScreen';
 import { Platform } from 'react-native'
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const FavoriteStack = createNativeStackNavigator();
+const OrderStack = createNativeStackNavigator();
 
-const FavoriteNavigator = () => (
-    <FavoriteStack.Navigator
-        initialRouteName="FavoritesScreen"
+const OrderNavigator = () => (
+    <OrderStack.Navigator
+        initialRouteName="OrdersScreen"
         screenOptions={{
            /* headerStyle: {
                 backgroundColor: Platform.OS === 'android' ? COLORS.bg : '',
@@ -22,11 +22,11 @@ const FavoriteNavigator = () => (
     }   
         }}
     >
-        <FavoriteStack.Screen 
-            name="Favorites" 
-            component={FavoritesScreen}
-            options={{title: 'Tus Productos Favoritos'}} 
+        <OrderStack.Screen 
+            name="Ordenes" 
+            component={OrderScreen}
+            options={{title: 'Ordenes'}} 
         />
-    </FavoriteStack.Navigator>
+    </OrderStack.Navigator>
 )
-export default FavoriteNavigator
+export default OrderNavigator

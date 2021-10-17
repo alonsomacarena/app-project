@@ -38,7 +38,7 @@ const ProductDetailScreen = ({navigation}) => {
       <Text style={styles.description}>{product.description}</Text>
       <Button
         title="Agregar a Favoritos"
-        icon={<Ionicons name="star" size={24} color={COLORS.bg} style={{paddingRight:6}} onPress={handlerConfirmFavorites}   />}
+        icon={<Ionicons name="star" size={24} color={COLORS.bg} style={{paddingRight:6}}  />}
         buttonStyle={styles.button}
         onPress={handlerAddItemFavorites}
       />
@@ -46,13 +46,13 @@ const ProductDetailScreen = ({navigation}) => {
 
         </View>
        
-      {/*<FAB
-        icon={<Ionicons name="cart" size={24} color={COLORS.text} />}
+      <FAB
+        icon={<Ionicons name="star" size={24} color={COLORS.text} />}
         placement="right"
-        color={COLORS.accent}
+        color={COLORS.title}
         buttonStyle={styles.buttonFab}
-        onPress={() => navigation.navigate('CartScreen')}
-      />*/}
+        onPress={handlerConfirmFavorites}  
+      />
     </View>
 </ScrollView>
   );
